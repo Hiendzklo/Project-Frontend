@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingredient Dashboard</title>
+    <link rel="stylesheet" href="../css/ingredient.css" />
+    <link rel="stylesheet" href="../css/modalEditIngredient.css" />
+    <link rel="stylesheet" href="../css/modalAddNewFood.css" />
+    <style>
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top-header">
+      <div class="menu-icon">
+        <img src="../assets/icons/Menu.png" alt="Menu" />
+      </div>
+      <div class="user-info">
+        <span>Cường Trần</span>
+        <img src="../assets/icons/Border.png" alt="boder" />
+      </div>
+    </header>
+
+    <header class="bottom-header">
+      <div class="header-title">
+        <div class="food">Food&nbsp;databases</div>
+        <p>Create, check and update foods that you can use on meal plans</p>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="main-header">
+        <div class="main-header-title">
+          <div class="recipe-low">Foods</div>
+          <p>Search, consult and add new foods to the system</p>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <input type="text" placeholder="Search food" class="search-input" />
+        <div class="sort-icon">
+          <img src="../assets/icons/Sort.png" alt="sort" />
+        </div>
+        <div class="sort-select">
+          <input
+            type="text"
+            placeholder="Sort by nutrient"
+            class="sort-input"
+          />
+        </div>
+        <div class="category-select">
+          <input type="text" placeholder="Category" class="category-input" />
+        </div>
+      </div>
+      <!-- list food -->
+      <div class="list-food">
+        <div class="food-one" onclick="openFoodModal()">
+          <table class="nutrition-table">
+            <thead>
+              <tr>
+                <th class="food-one-left-header">Ackee, canned, drained</th>
+                <th></th>
+                <th></th>
+                <th class="item1">151 kcal</th>
+                <th class="item1">15 g</th>
+                <th class="item1">1 g</th>
+                <th class="item1">3 g</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="food-one-left-next">McCance and Widdowson's</td>
+                <td class="item2"></td>
+                <td class="item2"></td>
+                <td class="item2">Energy</td>
+                <td class="item2">Fat</td>
+                <td class="item2">Carbohydrate</td>
+                <td class="item2">Protein</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="list-food">
+            <div class="food-one" onclick="openFoodModal()">
+              <table class="nutrition-table">
+                <thead>
+                  <tr>
+                    <th class="food-one-left-header">Ackee, canned, drained</th>
+                    <th></th>
+                    <th></th>
+                    <th class="item1">151 kcal</th>
+                    <th class="item1">15 g</th>
+                    <th class="item1">1 g</th>
+                    <th class="item1">3 g</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="food-one-left-next">McCance and Widdowson's</td>
+                    <td class="item2"></td>
+                    <td class="item2"></td>
+                    <td class="item2">Energy</td>
+                    <td class="item2">Fat</td>
+                    <td class="item2">Carbohydrate</td>
+                    <td class="item2">Protein</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="list-food">
+                <div class="food-one" onclick="openFoodModal()">
+                  <table class="nutrition-table">
+                    <thead>
+                      <tr>
+                        <th class="food-one-left-header">Ackee, canned, drained</th>
+                        <th></th>
+                        <th></th>
+                        <th class="item1">151 kcal</th>
+                        <th class="item1">15 g</th>
+                        <th class="item1">1 g</th>
+                        <th class="item1">3 g</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="food-one-left-next">McCance and Widdowson's</td>
+                        <td class="item2"></td>
+                        <td class="item2"></td>
+                        <td class="item2">Energy</td>
+                        <td class="item2">Fat</td>
+                        <td class="item2">Carbohydrate</td>
+                        <td class="item2">Protein</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="list-food">
+                    <div class="food-one" onclick="openFoodModal()">
+                      <table class="nutrition-table">
+                        <thead>
+                          <tr>
+                            <th class="food-one-left-header">Ackee, canned, drained</th>
+                            <th></th>
+                            <th></th>
+                            <th class="item1">151 kcal</th>
+                            <th class="item1">15 g</th>
+                            <th class="item1">1 g</th>
+                            <th class="item1">3 g</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="food-one-left-next">McCance and Widdowson's</td>
+                            <td class="item2"></td>
+                            <td class="item2"></td>
+                            <td class="item2">Energy</td>
+                            <td class="item2">Fat</td>
+                            <td class="item2">Carbohydrate</td>
+                            <td class="item2">Protein</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="list-food">
+                        <div class="food-one" onclick="openFoodModal()">
+                          <table class="nutrition-table">
+                            <thead>
+                              <tr>
+                                <th class="food-one-left-header">Ackee, canned, drained</th>
+                                <th></th>
+                                <th></th>
+                                <th class="item1">151 kcal</th>
+                                <th class="item1">15 g</th>
+                                <th class="item1">1 g</th>
+                                <th class="item1">3 g</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="food-one-left-next">McCance and Widdowson's</td>
+                                <td class="item2"></td>
+                                <td class="item2"></td>
+                                <td class="item2">Energy</td>
+                                <td class="item2">Fat</td>
+                                <td class="item2">Carbohydrate</td>
+                                <td class="item2">Protein</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+        
+        <div class="create-food" onclick="openAddNewFoodModal()">
+          <img src="../assets/icons/createFood.png" alt="" />
+          <div class="create">Create food</div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="pagination">
+          <img src="../assets/icons/Item → Button.png" alt="" />
+          <button class="active">1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>...</button>
+          <button>1037</button>
+          <button>1038</button>
+          <img src="../assets/icons/Item → Next page.png" alt="" />
+        </div>
+      </footer>
+    </main>
+
+    <div id="modalEditFood" class="modal-overlay" style="display: none">
+      <div class="modal-add">
+        <header class="header">
+          <div class="close-tag" onclick="closeFoodModal()">
+            <img src="../assets/icons/close-tag.png" alt="" />
+          </div>
+          <div class="add-new">Food information</div>
+          <div class="fill-in">
+            Check and update the information about the food
+          </div>
+        </header>
+        <main>
+          <!-- main header -->
+          <div class="main-header">
+            <div class="main-one">
+              <div class="name">Name</div>
+              <div class="name-input">Ackee, canned, drained</div>
+              <div class="source">Source</div>
+              <div class="my-foods">McCance and Widdowson's</div>
+            </div>
+            <div class="main-two">
+              <div class="name">Name</div>
+              <div class="name-input">Vegetables and Vegetable Products</div>
+              <div class="source">Source</div>
+              <div class="my-foods-one">100</div>
+              <div class="my-foods-one">grams</div>
+            </div>
+            <div class="main-three">Nutritional value per 100 g</div>
+          </div>
+          <!-- main mid -->
+          <div class="main-mid">
+            <div class="mid-title">Macronutrients</div>
+
+            <div class="main-mid-one">
+              <div class="mid-name">Energy</div>
+              <div class="mid-name-input">151.0</div>
+              <div class="mid-kcal">kcal</div>
+              <div class="mid-fat">Fat</div>
+              <div class="mid-name-input">15.2</div>
+              <div class="mid-kcal">g</div>
+            </div>
+            <div class="main-mid-two">
+              <div class="mid-name">Carbohydrate</div>
+              <div class="mid-name-input">0.8</div>
+              <div class="mid-kcal">g</div>
+
+              <div class="mid-protein">Protein</div>
+              <div class="mid-name-input">2.9</div>
+              <div class="mid-kcal">g</div>
+            </div>
+          </div>
+          <!-- main bot -->
+          <div class="main-bot">
+            <div class="mid-title">Macronutrients</div>
+            <div class="main-mid-one">
+              <!-- 1 -->
+              <div class="mid-name">Cholesterol</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+              <!-- 2 -->
+              <div class="bot-name">Fiber</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">g</div>
+              <!-- 3 -->
+              <div class="bot-fat">Sodium</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+            </div>
+            <div class="main-mid-two">
+              <!-- 1 -->
+              <div class="mid-name">Water</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">g</div>
+              <!-- 2 -->
+              <div class="bot-name">Vitamin A</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">ug</div>
+              <!-- 3 -->
+              <div class="bot-protein">Vitamin B-6</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+            </div>
+
+            <div class="main-mid-one">
+              <!-- 1 -->
+              <div class="mid-name">Vitamin B-12</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">ug</div>
+              <!-- 2 -->
+              <div class="bot-name">Vitamin C</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+              <!-- 3 -->
+              <div class="bot-fat">Vitamin K</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">ug</div>
+            </div>
+            <div class="main-mid-two">
+              <!-- 4 -->
+              <div class="mid-name">Lactose</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">g</div>
+              <!-- 5 -->
+              <div class="bot-name">Sugars</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">g</div>
+              <!-- 6 -->
+              <div class="bot-fat">Magnesium</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+            </div>
+            <div class="main-mid-one">
+              <!-- 7 -->
+              <div class="mid-name">Zinc</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+              <!-- 8 -->
+              <div class="bot-name">Manganese</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+              <!-- 9 -->
+              <div class="bot-fat">Riboflavin</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+            </div>
+            <div class="main-mid-two">
+              <!-- 10 -->
+              <div class="mid-name">Folate, total</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">ug</div>
+              <!-- 11 -->
+              <div class="bot-name">Fatty acids, total saturated</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">g</div>
+              <!-- 12 -->
+              <div class="bot-fat">Chloride</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+            </div>
+            <div class="main-mid-two">
+              <!-- 13 -->
+              <div class="mid-name">Fiber</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">g</div>
+              <!-- 14 -->
+              <div class="bot-name">Starch</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">g</div>
+              <!-- 15 -->
+              <div class="bot-fat">Caffeine</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+            </div>
+            <div class="main-mid-one">
+              <!-- 16 -->
+              <div class="mid-name">Iron</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+              <!-- 17 -->
+              <div class="bot-name">Potassium</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+              <!-- 18 -->
+              <div class="bot-fat">Fluoride</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">ug</div>
+            </div>
+            <div class="main-mid-two">
+              <!-- 19 -->
+              <div class="mid-name">Thiamin</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+              <!-- 20 -->
+              <div class="bot-name">Pantothenic acid</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">mg</div>
+              <!-- 21 -->
+              <div class="bot-fat">Fatty acids, total trans</div>
+              <div class="bot-name-input"></div>
+              <div class="mid-kcal">g</div>
+            </div>
+          </div>
+        </main>
+        <div class="button-container">
+          <button class="cancel-btn" onclick="closeFoodModal()">Cancel</button>
+          <button class="save-close-btn">Save and close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalAddNewFood" class="modal-overlay" style="display: none">
+      <div class="modal-add">
+        <header class="header">
+          <div class="close-tag" onclick="closeAddNewFoodModal()">
+            <img src="../assets/icons/close-tag.png" alt="" />
+          </div>
+          <div class="add-new">Add new food</div>
+          <div class="fill-in">
+            Fill in the fields below with the food information
+          </div>
+        </header>
+        <main>
+          <!-- main header -->
+          <div class="main-header">
+            <div class="main-one">
+              <div class="name">Name</div>
+              <input class="name-input" type="text" />
+              <div class="source">Source</div>
+              <div class="my-foods">My foods</div>
+            </div>
+            <div class="main-two">
+              <div class="name">Category</div>
+              <input class="name-input" type="text" />
+              <div class="source">Quantity</div>
+              <div class="my-foods-one">100</div>
+              <div class="my-foods-one">grams</div>
+            </div>
+            <div class="main-three">Nutritional value per 100 g</div>
+          </div>
+          <!-- main mid -->
+          <div class="main-mid">
+            <div class="mid-title">Macronutrients</div>
+
+            <div class="main-mid-one">
+              <div class="mid-name">Name</div>
+              <input class="mid-name-input" type="text" />
+              <div class="mid-kcal">kcal</div>
+
+              <div class="mid-fat">Fat</div>
+              <input class="mid-name-input" type="text" />
+              <div class="mid-kcal">g</div>
+            </div>
+            <div class="main-mid-two">
+              <div class="mid-name">Name</div>
+              <input class="mid-name-input" type="text" />
+              <div class="mid-kcal">g</div>
+
+              <div class="mid-protein">Protein</div>
+              <input class="mid-name-input" type="text" />
+              <div class="mid-kcal">g</div>
+            </div>
+          </div>
+          <!-- main bot -->
+          <div class="main-bot">
+            <div class="mid-title">Macronutrients</div>
+            <div class="main-mid-one">
+              <!-- 1 -->
+              <div class="mid-name">Cholesterol</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+              <!-- 2 -->
+              <div class="bot-name">Fiber</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">g</div>
+              <!-- 3 -->
+              <div class="bot-fat">Sodium</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+            </div>
+            <div class="main-mid-two">
+              <!-- 1 -->
+              <div class="mid-name">Water</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">g</div>
+              <!-- 2 -->
+              <div class="bot-name">Vitamin A</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">ug</div>
+              <!-- 3 -->
+              <div class="bot-protein">Vitamin B-6</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+            </div>
+
+            <div class="main-mid-one">
+              <!-- 1 -->
+              <div class="mid-name">Vitamin B-12</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">ug</div>
+              <!-- 2 -->
+              <div class="bot-name">Vitamin C</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+              <!-- 3 -->
+              <div class="bot-fat">Vitamin K</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">ug</div>
+            </div>
+            <div class="main-mid-two">
+              <!-- 4 -->
+              <div class="mid-name">Lactose</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">g</div>
+              <!-- 5 -->
+              <div class="bot-name">Sugars</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">g</div>
+              <!-- 6 -->
+              <div class="bot-fat">Magnesium</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+            </div>
+            <div class="main-mid-one">
+              <!-- 7 -->
+              <div class="mid-name">Zinc</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+              <!-- 8 -->
+              <div class="bot-name">Manganese</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+              <!-- 9 -->
+              <div class="bot-fat">Riboflavin</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+            </div>
+            <div class="main-mid-two">
+              <!-- 10 -->
+              <div class="mid-name">Folate, total</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">ug</div>
+              <!-- 11 -->
+              <div class="bot-name">Fatty acids, total saturated</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">g</div>
+              <!-- 12 -->
+              <div class="bot-fat">Chloride</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+            </div>
+            <div class="main-mid-two">
+              <!-- 13 -->
+              <div class="mid-name">Fiber</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">g</div>
+              <!-- 14 -->
+              <div class="bot-name">Starch</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">g</div>
+              <!-- 15 -->
+              <div class="bot-fat">Caffeine</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+            </div>
+            <div class="main-mid-one">
+              <!-- 16 -->
+              <div class="mid-name">Iron</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+              <!-- 17 -->
+              <div class="bot-name">Potassium</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+              <!-- 18 -->
+              <div class="bot-fat">Fluoride</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">ug</div>
+            </div>
+            <div class="main-mid-two">
+              <!-- 19 -->
+              <div class="mid-name">Thiamin</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+              <!-- 20 -->
+              <div class="bot-name">Pantothenic acid</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">mg</div>
+              <!-- 21 -->
+              <div class="bot-fat">Fatty acids, total trans</div>
+              <input class="bot-name-input" type="text" />
+              <div class="mid-kcal">g</div>
+            </div>
+          </div>
+        </main>
+        <div class="button-container">
+          <button class="cancel-btn" onclick="closeAddNewFoodModal()">
+            Cancel
+          </button>
+          <button class="save-close-btn">Save and close</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openFoodModal() {
+        document.getElementById("modalEditFood").style.display = "flex";
+      }
+
+      function closeFoodModal() {
+        document.getElementById("modalEditFood").style.display = "none";
+      }
+
+      function openAddNewFoodModal() {
+        document.getElementById("modalAddNewFood").style.display = "flex";
+      }
+
+      function closeAddNewFoodModal() {
+        document.getElementById("modalAddNewFood").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

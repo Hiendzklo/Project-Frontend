@@ -1,0 +1,264 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f4;
+  }
+  
+  /* Header trên: Chứa Menu và Cường Trần */
+  .top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .menu-icon img {
+    width: 40px;
+    cursor: pointer;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* Header dưới: Chứa Recipes và phần mô tả */
+  .bottom-header {
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+  }
+  .recipe{
+    width: 83px;
+    height: 26px;
+    font-size: 24px;
+    font-weight:300;
+    color: #676A6C;
+    margin-bottom: 5px;
+  }
+  
+  .header-title p {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  /* Main Content */
+  .main-content {
+    padding: 20px;
+    max-width: 100%;
+    margin: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-header {
+    padding: 20px;
+    background-color: white;
+  }
+  
+  .recipe-low {
+    width: 71px;
+    height: 22px;
+    font-size: 20px;
+    font-weight:400;
+    color: #4a4c4d;
+    margin-bottom: 5px;
+  }
+  
+  .main-header-title p {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .search-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  
+  .search-input {
+    flex: 2;
+    max-width: 695px;
+    height: 34px;
+    border: 1px solid #ccc;
+  }
+  
+  .sort-icon {
+    flex: 1;
+    width: 36px;
+    height: 34px;
+    object-fit: cover;
+  }
+  
+  .search-input::placeholder {
+    color: #ccc;
+    opacity: 1;
+    padding-left: 8px;
+  }
+  
+  .sort-input,
+  .category-input {
+    flex: 1;
+    width: 200px;
+    height: 34px;
+    border: 1px solid #ccc;
+  }
+  
+  .sort-input::placeholder,
+  .category-input::placeholder {
+    color: #ccc;
+    opacity: 1;
+    padding-left: 8px;
+  }
+  
+  /* Recipes Grid */
+  .recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(565px, 1fr));
+    gap: 20px;
+  }
+  /* Recipe Cards */
+  .recipe-card {
+    display: flex;
+    justify-content: space-between;
+    width: 565px;
+    height: 220px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    border  : 1px solid #e7dcdc;
+  }
+  
+  .header-left-recipe{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+    height: 28px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  .conmunity-icon{
+    width: 14px;
+    height: 14px;
+    margin-left: 10px;
+  }
+  .recipe-tag {
+    width: 109px;
+    height: 16.5px;
+    margin-top: 6px;
+    margin-right: 10px;
+    font-size: 11px;
+    color: #EA9F77;
+    font-weight: 700;
+  }
+  .mid-recipe{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .recipe-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  .like-btn{
+    width: 60px;
+    height: 28px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px;
+    color: #AAAAAA;
+    background-color: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+  }
+  .like-btn img{
+    width: 16px;
+    height: 16px;
+    object-fit: cover;
+  }
+  
+  .mid-recipe p {
+    margin-left: 25px;
+    font-size: 14px;
+    color: #666;
+  }
+  .mid-recipe-two{
+    display: flex;
+    align-items: center;
+  }
+  
+  .recipe-stats {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #666;
+    padding: 10px 0 0 10px;
+    border-top: 1px solid #c7c5c5;
+  }
+  .recipe-ingredient{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    padding: 0 0 0 10px;
+  }
+  
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: right;
+    background-color: white;
+}
+
+.footer img {
+    width: 35px;
+    height: 28px;
+    object-fit: cover;
+}
+
+.pagination {
+    display: inline-flex;
+    gap: 5px;
+    flex-wrap: wrap;  /* Cho phép các phần tử gói lại khi không đủ không gian */
+    justify-content: flex-end; /* Căn chỉnh các phần tử về bên phải */
+}
+
+.pagination button {
+    min-width: 29px; /* Đảm bảo nút có chiều rộng tối thiểu */
+    height: 28px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+.pagination button.active {
+    background-color: #DDDDDD;
+    color: white;
+}
+
+.pagination button:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination button {
+    padding: 0 5px; /* Thêm padding để làm cho số lớn dễ đọc hơn */
+    font-size: 14px; /* Giảm kích thước font nếu cần */
+}

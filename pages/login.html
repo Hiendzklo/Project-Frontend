@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-in Page</title>
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sign-in-form">
+        <img src="../assets/icons/logo.png" alt="Nutrium Logo" class="logo" />
+        <h2>Please sign in</h2>
+        <form>
+          <div class="input-container">
+            <input
+              id="email-input"
+              type="email"
+              name="email"
+              placeholder="Email address"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <input
+              id="password-input"
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="remember-me">
+            <input id="remember-checkbox" type="checkbox" name="remember" />
+            <label for="remember-checkbox">Remember me</label>
+          </div>
+          <p class="account-link">
+            Don't have an account,
+            <a href="./register.html" class="click-here">click here!</a>
+          </p>
+          <button type="submit" class="sign-in-btn">Sign in</button>
+          <!-- Thông báo lỗi với icon ảnh -->
+          <div class="message error">
+            <div class="error-header">
+              <!-- Icon lỗi -->
+              <img
+                src="../assets/icons/remove_circle.png"
+                alt="Error Icon"
+                class="error-icon"
+              />
+              <!-- Từ "Error" -->
+              <span class="error-text">Error</span>
+              <!-- Icon đóng -->
+              <img
+                src="../assets/icons/CloseButton.png"
+                alt="Close Icon"
+                class="error-close-icon"
+              />
+            </div>
+            <div class="error-detail">
+              Mật khẩu không được bỏ trống<br />
+              Email không được bỏ trống
+            </div>
+          </div>
+
+          <!-- Thông báo thành công với icon ảnh -->
+          <div class="message success">
+            <img
+              src="../assets/icons/check_circle.png"
+              alt="Success Icon"
+              class="success-icon"
+            />
+            Đăng nhập thành công
+          </div>
+        </form>
+        <footer>© 2025 - Nguyễn Duy Hiển</footer>
+      </div>
+    </div>
+  </body>
+</html>
