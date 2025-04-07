@@ -5,9 +5,9 @@ function drawChart() {
   // Set Data
   const data = google.visualization.arrayToDataTable([
     ["Category", "Percentage"],
-    ["Fat", 38.3],
-    ["Carbohydrate", 48.9],
-    ["Protein", 12.8],
+    ["Fat", 2.2],
+    ["Carbohydrate", 95.6],
+    ["Protein", 2.2],
   ]);
 
   // Set Options with customized colors

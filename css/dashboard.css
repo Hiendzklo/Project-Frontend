@@ -1,38 +1,30 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-  }
-  
   .sidebar {
     width: 250px;
     background-color: #2f3b45;
     color: white;
     height: 100vh;
     padding-top: 20px;
-    position: fixed;
   }
   
   .sidebar-header {
     text-align: center;
     margin-bottom: 40px;
   }
+  .menu-tag{
+    display: flex;
+    flex-direction: column;
+    gap: 395px;
+  }
   
   .logo {
     width: 150px;
     height: auto;
+    margin-right: 60px;
   }
   
   .menu {
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
   }
   
   .menu-item {
@@ -42,8 +34,7 @@
     align-items: center;
     margin: 10px 0;
     font-size: 18px;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 8px 20px;
   }
   
   .menu-item:hover {
@@ -58,17 +49,16 @@
   
   /* Phần Sign out */
   .logout {
-    position: absolute;
     bottom: 20px;
-    width: 100%;
+    width: 608%;
     text-align: center;
   }
   
   .logout .menu-item {
-    position: relative;
     background-color: #12896D; /* Nền xanh cho Sign out */
     padding: 10px 20px;
-    border-radius: 4px;
+    width: 16.45%;
+    margin-top: 15px;
   }
   
 

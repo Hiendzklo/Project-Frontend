@@ -1,0 +1,885 @@
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f3f3f4;
+    color: #676A6C;
+  }
+  body::-webkit-scrollbar{
+    width: 1px;
+}
+  .all-content{
+    display: flex;
+  }
+  
+  /* Header trên: Chứa Menu và Cường Trần */
+  .top-header {
+    width: 104%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .menu-icon img {
+    width: 40px;
+    cursor: pointer;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* Header dưới: Chứa Recipes và phần mô tả */
+  .bottom-header {
+    width: 104%;
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+  }
+  .recipe{
+    width: 83px;
+    height: 26px;
+    font-size: 24px;
+    font-weight:300;
+    color: #676A6C;
+    margin-bottom: 5px;
+  }
+  
+  .header-title p {
+    font-size: 14px;
+    color: #888;
+  }
+  /* main */
+  .main-content-one{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .community-content{
+    width: 275px;
+    height: 327px;
+    margin: -253px 0 0 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 230px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+  }
+  .community{
+    display: flex;
+    justify-content: space-between;
+  }
+  .header-left-recipe{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    width: 100px;
+    height: 28px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding-left: 5px;
+  }
+  #pencil{
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    color: #2BA0CC;
+    border-bottom: 3px solid #2BA0CC;
+}
+.my-recipes{
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 11px;
+    height: 16px;
+    color: #2BA0CC;
+}
+
+  .community{
+    display: flex;
+    gap: 10px;
+  }
+  .like-btn{
+    width: 60px;
+    height: 28px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px;
+    color: #AAAAAA;
+    background-color: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+  }
+  .like-btn img{
+    width: 16px;
+    height: 16px;
+    object-fit: cover;
+  }
+  .mid-recipe p {
+    margin-left: 25px;
+    font-size: 14px;
+    color: #666;
+  }
+  .mid-recipe-two{
+    display: flex;
+    align-items: center;
+    border: 1px solid #EEEEEE;
+    width: 125px;
+    height: 27px;
+    padding-left: 4px;
+    border-radius: 5px;
+    gap: 5px;
+  }
+  .vegetable-text{
+    font-size: 12px;
+  }
+  .publish-basic-tag {
+    display: flex;
+    flex-direction: column;
+    width: 885px;
+    margin: 10px 0 20px 20px;
+    padding: 15px;
+ }
+ .publish-tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 885px;
+    height: 75px;
+    margin: 10px 0 20px 20px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+ }
+ .publish-tag-left{
+    margin-top: 15px;
+ }
+ .button-publish{
+    width: 74px;
+    height: 34px;
+    font-size: 14px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding-left: 14px;
+    background-color: #1AB394;
+    border-radius: 3px;
+ }
+ 
+
+  .publish-basic {
+    width: 885px;
+    height: 454px;
+    padding: 15px;
+    margin: 10px 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+ }
+  .title-basic {
+    font-size: 20px;
+    font-weight: 400;
+    color: #676A6C;
+ }
+ .check-end {
+    font-size: 12px;
+    font-weight: 300;
+    color: #888888;
+    margin-bottom: 20px;
+ }
+ .name-tag {
+    display: flex;
+    margin-top: 6px;
+ }
+ .name {
+    width: 200px;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border: 1px solid #EEEEEE;
+    background-color: #FAFAFB;
+ }
+ .name-text {
+    width: 605px;
+    height: 41px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+ }
+ .name-tag-description{
+    display: flex;
+    margin-top: 6px;
+ }
+ .name-description {
+    width: 200px;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border: 1px solid #EEEEEE;
+    background-color: #FAFAFB;
+ }
+ .name-text-description {
+    width: 605px;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 13px;
+    border: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+ }
+ #basic-pencil{
+    width: 39px;
+    background-color: #EEEEEE;
+    color: #1AB394;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+ }
+/* main two */
+.creation-tag {
+    width: 1225px;
+    height: 61px;
+    margin-left: 20px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1AB394;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+.creation {
+    font-size: 17px;
+}
+.text-creation {
+    font-size: 11px;
+}
+.table-left{
+    gap: 25px;
+    display: flex;
+}
+.table-left-content{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.ingredients-tag {
+    width: 800.55px;
+    height: 1015px;
+    margin-left: 20px;
+    padding: 20px 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    color: #676A6CFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.ingredients {
+    font-size: 20px;
+}
+.ingredients-text {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 20px;
+}
+.ingredients-one{
+    display: flex;
+    width: 742px;
+    height: 90px;
+    margin-bottom: 7px;
+}
+
+.title-one {
+    width: 703px;
+    height: 40.5px;
+    border: 1px solid #EEEEEE;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.add-one {
+    display: flex;
+}
+#add-icon{
+    width: 39px;
+    height: 40.5px;
+    border: 1px solid #EEEEEE;
+    background-color: #EEEEEE;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input-one {
+    width: 664px;
+    border: 1px solid #EEEEEE;
+}
+.input-one::placeholder{
+    color: #bbb4b4;
+    font-size: 13px;
+    padding-left: 10px;
+    font-weight: 400;
+}
+#trash-icon{
+
+width: 39px;
+    height: 81px;
+    border: 1px solid #EEEEEE;
+    background-color: #EEEEEE;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-add {
+    display: flex;
+    flex-direction: column;
+    width: 743px;
+    height: 719.5px;
+    background-color: #FAFAFB;
+}
+.form-header{
+    display: flex;
+    align-items: center;
+}
+#arrow-up{
+    width: 39px;
+    height: 39.5px;
+    color: #1AB394;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #EEEEEE;
+    background-color: #EEEEEE;
+
+
+}
+.add-ingredient {
+   width: 704px; 
+   height: 39.5px;
+   display: flex;
+    align-items: center;
+    border: 1px solid #EEEEEE;
+}
+.add-ingredient::placeholder{
+    color: #bbb4b4;
+    font-size: 13px;
+    padding-left: 10px;
+    font-weight: 400;
+}
+.search-food{
+    width: 256px;
+    border: 1px solid #EEEEEE;
+}
+.search-food::placeholder,
+.sort-nutrient::placeholder
+{
+    color: #bbb4b4;
+    font-size: 13px;
+    padding-left: 10px;
+    font-weight: 400;
+}
+.form-search{
+    display: flex;
+    height: 34px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.form-search-mid {
+   display: flex;
+}
+#sort-icon{
+    width: 36px;
+    font-size: 16px;
+    height: 34px;
+    border: 1px solid #EEEEEE;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+.sort-nutrient {
+    width: 200px;
+    height: 34px;
+    border: 1px solid #EEEEEE;
+
+}
+
+
+.all-data{
+    border: 1px solid #EEEEEE;
+    width: 200px;
+    margin-left: 10px;
+}
+.all-data::placeholder{
+    padding-left: 10px;
+}
+.nutritional-tag {
+    display: flex;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+    width: 711px;
+    margin-left: 15px;
+}
+.nutritional-tiltel {
+    width: 411px;
+    height: 53.5px;
+    padding-left: 10px;
+    border: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+}
+.nutritional-energy {
+    width: 65px;
+    height: 53.5px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #EEEEEE;
+    background-color: #FAFAFB;
+    padding-left: 10px;
+    font-size: 13px;
+    border-left: none;
+}
+.nutritional-fat {
+    width: 65px;
+    height: 53.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #EEEEEE;
+    background-color: #FAFAFB;
+    padding-left: 10px;
+    font-size: 13px;
+
+}
+.nutritional-carbohydrate {
+    width: 65px;
+    height: 53.5px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #EEEEEE;
+    background-color: #FAFAFB;
+    padding-left: 10px;
+    font-size: 13px;
+
+}
+.nutritional-protein {
+    width: 65px;
+    height: 53.5px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #EEEEEE;
+    background-color: #FAFAFB;
+    padding-left: 10px;
+    font-size: 13px;
+}
+.list-table-header {
+    display: flex;
+    align-items: center;
+    background-color: #FAFAFB;
+    border: 1px solid #EEEEEE;
+    width: 711px;
+    height: 101px;
+    margin-left: 15px;
+    padding: 15px 0 5px 15px;
+}
+.table-header {
+    width: 379px;
+    height: 99px;
+    display: flex;
+    flex-direction: column;
+}
+.table-header-content {
+    display: flex;
+    flex-direction: column;
+}
+.table-header-tiltel {
+    font-size: 13px;
+    color: #282828;
+    font-weight: 400;
+}
+.table-header-text {
+    font-size: 11.7px;
+}
+.small-table {
+    display: flex;
+    width: 379px;
+    font-size: 12.4px;
+    height: 32px;
+    margin-top: 15px;
+    color: #282828;
+}
+.small-table-number {
+    display: flex;
+    align-items: center;
+    width: 60px;
+    height: 32px;
+    padding-left: 10px;
+    border: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+}
+.small-table-text {
+    display: flex;
+    align-items: center;
+    width: 240px;
+    height: 32px;
+    padding-left: 10px;
+    border: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+}
+.small-table-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 32px;
+    padding-left: 10px;
+    border: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+}
+
+.food-data {
+    width: 276px;
+    height: 99px;
+    gap: 40px;
+    padding-left: 28px;
+    display: flex;
+    align-items: center;
+    font-size: 11.7px;
+    color: #282828;
+}
+#add-icon-food{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    width: 39.5px;
+    height: 99px;
+    margin-top: -10px;
+    background-color: #1AB394;
+}
+.list-table{
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    width: 711px;
+    height: 101px;
+    margin-left: 15px;
+    padding: 15px 0 5px 15px;
+}
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: right;
+    background-color: white;
+}
+
+.footer img {
+    width: 35px;
+    height: 28px;
+    object-fit: cover;
+}
+
+.pagination {
+    display: inline-flex;
+    gap: 5px;
+    flex-wrap: wrap;  /* Cho phép các phần tử gói lại khi không đủ không gian */
+    justify-content: flex-end; /* Căn chỉnh các phần tử về bên phải */
+}
+
+.pagination button {
+    min-width: 29px; /* Đảm bảo nút có chiều rộng tối thiểu */
+    height: 28px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+.pagination button.active {
+    background-color: #DDDDDD;
+    color: white;
+}
+
+.pagination button:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination button {
+    padding: 0 5px; /* Thêm padding để làm cho số lớn dễ đọc hơn */
+    font-size: 14px; /* Giảm kích thước font nếu cần */
+}
+
+
+
+
+.cooking-tag{
+  width: 800.5px;
+  height: 136.5px;
+  background-color: #FFFFFF;
+  margin-left: 20px;
+  padding: 20px 0 0 20px;
+  border-radius: 5px;
+}
+.cooking-tiltel {
+  font-size: 20px;
+  font-weight: 400;
+  color: #676A6C;
+}
+.cooking-text {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 20px;
+}
+.method-tag {
+  display: flex;
+  align-items: center;
+  
+}
+.method-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  font-weight: 600;
+  border: 1px solid #EEEEEE;
+  border-right: none;
+  background-color: #EEEEEE;
+  height: 41.5px;
+}
+.method-text {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 400;
+  padding-left: 10px;
+  border: 1px solid #EEEEEE;
+  height: 41.5px;
+  width: 703px;
+
+}
+.method-text::placeholder{
+    color: #888888;
+    font-size: 13px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-style: italic;
+}
+#method-pencil{
+    width: 39px;
+    height: 41.5px;
+    background-color: #EEEEEE;
+    color: #1AB394;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.global-content {
+    width: 398.5px;
+    height: 249px;
+    padding: 20px 4px 0 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+.global {
+    font-size: 20px;
+}
+.text-icon{
+    display: flex;
+    justify-content: space-between;
+}
+.global-text {
+    width: 262px;
+    height: 18px;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 20px;
+}
+#messenger-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    padding-top: 5px;
+    background-color: #1AB394;
+    border-radius: 50%;
+}
+.energy-kcal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+.kcal-tag{
+    display: flex;
+    gap: 5px;
+}
+.number-kcal{
+    font-size: 14px;
+    font-weight: 600;
+}
+.circle-tag {
+    display: flex;
+    gap: 15px;
+    height: 100px;
+    margin-top: 20px;
+}
+
+.circle-fat, .circle-Carbohydrate, .circle-Protein, .circle-Fiber {
+    width: 80px;
+    height: 80px;
+    border-radius:  50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #676A6C;
+    margin-bottom: 0px;
+}
+
+.circle-fat {
+    border: 5px solid #EEEEEE;
+}
+
+.circle-Carbohydrate {
+    border: 5px solid #EA9F77;
+}
+
+.circle-Protein {
+    border: 5px solid #EEEEEE;
+}
+
+.circle-Fiber {
+    border: 5px solid #6A7D93;
+}
+.title-circle{
+    padding-left: 29px;
+    display: flex;
+    gap: 42px;
+    margin-top: -15px;
+}
+.title{
+    font-weight: 400;
+    font-size: 13px;
+}
+.title-protein{
+    font-weight: 400;
+    font-size: 13px;
+    margin: 0 14px 0 -12px;
+}
+.global-content-tag{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.macronutrients-tag {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 0 20px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+.macronutrients {
+    font-size: 20px;
+}
+.macronutrients-text {
+    font-size: 12px;
+    color: #888;
+}
+.container {
+    width: 398.5px;
+    height: 777px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #EEEEEE;
+    border-radius: 10px;
+}
+
+.micronutrients-table {
+    font-size: 24px;
+    color: #333;
+    font-size: 20px;
+}
+
+.subheading {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+table {
+    width: 100%;
+    border: none;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: none;
+}
+
+th, td {
+    height: 28px;
+    text-align: left;
+}
+
+th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+td {
+    background-color: #FFFFFF;
+}
+
+tr:nth-child(even) td {
+    background-color: #FAFAFB;
+}
+tr td:nth-child(2) {
+    text-align: right;
+}
+tr td:nth-child(2) span.number {
+    font-weight: 700;
+}

@@ -5,251 +5,325 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipes Dashboard</title>
     <link rel="stylesheet" href="../css/homepages.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- Header trên (Chứa Menu và Cường Trần) -->
-    <header class="top-header">
-      <div class="menu-icon">
-        <img src="../assets/icons/Menu.png" alt="Menu" />
-      </div>
-      <div class="user-info">
-        <span>Cường Trần</span>
-        <img src="../assets/icons/Border.png" alt="boder" />
-      </div>
-    </header>
-
-    <!-- Header dưới (Chứa Recipes và phần mô tả) -->
-    <header class="bottom-header">
-      <div class="header-title">
-        <div class="recipe">Recipes</div>
-        <p>Create, check and update recipes</p>
-      </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main-content">
-      <div class="main-header">
-        <div class="main-header-title">
-          <div class="recipe-low">Recipes</div>
-          <p>Create, check and update recipes</p>
+    <div class="all-content">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <img src="../assets/icons/logo.png" alt="Nutrium Logo" class="logo" />
+        </div>
+        <div class="menu-tag">
+          <div class="menu">
+            <a
+              href="#"
+              class="menu-item"
+              style="background-color: #1d2b33"
+              onclick="window.location.href='homepage.html'"
+            >
+              <img
+                src="../assets/icons/homepage_light.png"
+                alt="Home Icon"
+                class="menu-icon"
+              />
+              Homepage
+            </a>
+            <a
+              href="#"
+              class="menu-item"
+              onclick="window.location.href='ingredient.html'"
+            >
+              <img
+                src="../assets/icons/food.png"
+                alt="Foods Icon"
+                class="menu-icon"
+              />
+              Foods
+            </a>
+            <a
+              href="#"
+              class="menu-item"
+              onclick="window.location.href='recipe.html'"
+            >
+              <img
+                src="../assets/icons/recipe.png"
+                alt="Recipes Icon"
+                class="menu-icon"
+              />
+              Recipes
+            </a>
+          </div>
+          <div class="logout">
+            <a
+              href="#"
+              class="menu-item"
+              onclick="window.location.href='login.html'"
+            >
+              <img
+                src="../assets/icons/Signout.png"
+                alt="Sign Out Icon"
+                class="menu-icon"
+              />
+              Sign out
+            </a>
+          </div>
         </div>
       </div>
+      <div class="page-content">
+        <!-- Header trên (Chứa Menu và Cường Trần) -->
+        <header class="top-header">
+          <div class="menu-icon">
+            <img src="../assets/icons/Menu.png" alt="Menu" />
+          </div>
+          <div class="user-info">
+            <span>Cường Trần</span>
+            <img src="../assets/icons/Border.png" alt="boder" />
+          </div>
+        </header>
 
-      <div class="search-section">
-        <input type="text" placeholder="Search food" class="search-input" />
-        <div class="sort-icon">
-          <img src="../assets/icons/Sort.png" alt="sort" />
-        </div>
-        <div class="sort-select">
-          <input
-            type="text"
-            placeholder="Sort by nutrient"
-            class="sort-input"
-          />
-        </div>
-        <div class="category-select">
-          <input type="text" placeholder="Category" class="category-input" />
-        </div>
-      </div>
+        <!-- Header dưới (Chứa Recipes và phần mô tả) -->
+        <header class="bottom-header">
+          <div class="header-title">
+            <div class="recipe">Recipes</div>
+            <p>Create, check and update recipes</p>
+          </div>
+        </header>
 
-      <div class="recipes-grid">
-        <!-- Recipe Card 1 -->
-        <div class="recipe-card">
-          <div class="header-left-recipe">
-            <img
-              class="conmunity-icon"
-              src="../assets/icons/Community.png"
-              alt=""
+        <!-- Main Content -->
+        <main class="main-content">
+          <div class="main-header">
+            <div class="main-header-title">
+              <div class="recipe-low">Recipes</div>
+              <p>Create, check and update recipes</p>
+            </div>
+          </div>
+
+          <div class="search-section">
+            <input type="text" placeholder="Search food" class="search-input" />
+            <div class="sort-icon">
+              <i class="bi bi-sort-up-alt"></i>
+            </div>
+            <input
+              type="text"
+              placeholder="Sort by nutrient"
+              class="sort-input"
             />
-            <div class="recipe-tag">Community Recipes</div>
+            <div class="arrow-down"></div>
+            <div class="category-select">
+              <input
+                type="text"
+                placeholder="Category"
+                class="category-input"
+              />
+            </div>
+            <div class="arrow-down"></div>
           </div>
 
-          <div class="header-right-recipe">
-            <h3>
-              Turmeric Roasted Cauliflower<br />
-              Salad (lowfodmap)
-            </h3>
-            <div class="mid-recipe">
-              <p>Joana Jardim</p>
-              <button class="like-btn">
-                <img src="../assets/icons/favorite_border.png" alt="" />
-                <div>37</div>
-              </button>
+          <div class="recipes-grid">
+            <!-- Recipe Card 1 -->
+            <div class="recipe-card">
+              <div class="header-left-recipe">
+                <img
+                  class="conmunity-icon"
+                  src="../assets/icons/Community.png"
+                  alt=""
+                />
+                <div class="recipe-tag">Community Recipes</div>
+              </div>
+
+              <div class="header-right-recipe">
+                <h3>
+                  Turmeric Roasted Cauliflower<br />
+                  Salad (lowfodmap)
+                </h3>
+                <div class="mid-recipe">
+                  <p>Joana Jardim</p>
+                  <button class="like-btn">
+                    <img src="../assets/icons/favorite_border.png" alt="" />
+                    <div>37</div>
+                  </button>
+                </div>
+
+                <div class="mid-recipe-two">
+                  <img src="../assets/icons/vegetable-tag.png" alt="" />
+                  <p>Vegetarian dishes</p>
+                </div>
+                <div class="recipe-stats">
+                  <p>by</p>
+                  <p>Energy</p>
+                  <p>Fat</p>
+                  <p>Carbohydrate</p>
+                  <p>Protein</p>
+                </div>
+
+                <div class="recipe-ingredient">
+                  <p>100g</p>
+                  <p>143kcal</p>
+                  <p class="recipe-fat">6 g</p>
+                  <p class="recipe-carbohydrate">18 g</p>
+                  <p class="recipe-protein">5 g</p>
+                </div>
+              </div>
             </div>
 
-            <div class="mid-recipe-two">
-              <img src="../assets/icons/vegetable-tag.png" alt="" />
-              <p>Vegetarian dishes</p>
+            <!-- Recipe Card 2 -->
+            <div class="recipe-card">
+              <div class="header-left-recipe">
+                <img
+                  class="conmunity-icon"
+                  src="../assets/icons/Community.png"
+                  alt=""
+                />
+                <div class="recipe-tag">Community Recipes</div>
+              </div>
+
+              <div class="header-right-recipe">
+                <h3>
+                  Turmeric Roasted Cauliflower<br />
+                  Salad (lowfodmap)
+                </h3>
+                <div class="mid-recipe">
+                  <p>Joana Jardim</p>
+                  <button class="like-btn">
+                    <img src="../assets/icons/favorite_border.png" alt="" />
+                    <div>37</div>
+                  </button>
+                </div>
+
+                <div class="mid-recipe-two">
+                  <img src="../assets/icons/vegetable-tag.png" alt="" />
+                  <p>Vegetarian dishes</p>
+                </div>
+                <div class="recipe-stats">
+                  <p>by</p>
+                  <p>Energy</p>
+                  <p>Fat</p>
+                  <p>Carbohydrate</p>
+                  <p>Protein</p>
+                </div>
+
+                <div class="recipe-ingredient">
+                  <p>100g</p>
+                  <p>143kcal</p>
+                  <p class="recipe-fat">6 g</p>
+                  <p class="recipe-carbohydrate">18 g</p>
+                  <p class="recipe-protein">5 g</p>
+                </div>
+              </div>
             </div>
-            <div class="recipe-stats">
-              <p>by</p>
-              <p>Energy</p>
-              <p>Fat</p>
-              <p>Carbohydrate</p>
-              <p>Protein</p>
+            <!-- Recipe Card 3 -->
+            <div class="recipe-card">
+              <div class="header-left-recipe">
+                <img
+                  class="conmunity-icon"
+                  src="../assets/icons/Community.png"
+                  alt=""
+                />
+                <div class="recipe-tag">Community Recipes</div>
+              </div>
+
+              <div class="header-right-recipe">
+                <h3>
+                  Turmeric Roasted Cauliflower<br />
+                  Salad (lowfodmap)
+                </h3>
+                <div class="mid-recipe">
+                  <p>Joana Jardim</p>
+                  <button class="like-btn">
+                    <img src="../assets/icons/favorite_border.png" alt="" />
+                    <div>37</div>
+                  </button>
+                </div>
+
+                <div class="mid-recipe-two">
+                  <img src="../assets/icons/vegetable-tag.png" alt="" />
+                  <p>Vegetarian dishes</p>
+                </div>
+                <div class="recipe-stats">
+                  <p>by</p>
+                  <p>Energy</p>
+                  <p>Fat</p>
+                  <p>Carbohydrate</p>
+                  <p>Protein</p>
+                </div>
+
+                <div class="recipe-ingredient">
+                  <p>100g</p>
+                  <p>143kcal</p>
+                  <p class="recipe-fat">6 g</p>
+                  <p class="recipe-carbohydrate">18 g</p>
+                  <p class="recipe-protein">5 g</p>
+                </div>
+              </div>
             </div>
 
-            <div class="recipe-ingredient">
-              <p>100g</p>
-              <p>143kcal</p>
-              <p>6 g</p>
-              <p>18 g</p>
-              <p>5 g</p>
+            <!-- Recipe Card 4 -->
+            <div class="recipe-card">
+              <div class="header-left-recipe">
+                <img
+                  class="conmunity-icon"
+                  src="../assets/icons/Community.png"
+                  alt=""
+                />
+                <div class="recipe-tag">Community Recipes</div>
+              </div>
+
+              <div class="header-right-recipe">
+                <h3>
+                  Turmeric Roasted Cauliflower<br />
+                  Salad (lowfodmap)
+                </h3>
+                <div class="mid-recipe">
+                  <p>Joana Jardim</p>
+                  <button class="like-btn">
+                    <img src="../assets/icons/favorite_border.png" alt="" />
+                    <div>37</div>
+                  </button>
+                </div>
+
+                <div class="mid-recipe-two">
+                  <img src="../assets/icons/vegetable-tag.png" alt="" />
+                  <p>Vegetarian dishes</p>
+                </div>
+                <div class="recipe-stats">
+                  <p>by</p>
+                  <p>Energy</p>
+                  <p>Fat</p>
+                  <p>Carbohydrate</p>
+                  <p>Protein</p>
+                </div>
+
+                <div class="recipe-ingredient">
+                  <p>100g</p>
+                  <p>143kcal</p>
+                  <p class="recipe-fat">6 g</p>
+                  <p class="recipe-carbohydrate">18 g</p>
+                  <p class="recipe-protein">5 g</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Recipe Card 2 -->
-        <div class="recipe-card">
-          <div class="header-left-recipe">
-            <img
-              class="conmunity-icon"
-              src="../assets/icons/Community.png"
-              alt=""
-            />
-            <div class="recipe-tag">Community Recipes</div>
-          </div>
-
-          <div class="header-right-recipe">
-            <h3>
-              Turmeric Roasted Cauliflower<br />
-              Salad (lowfodmap)
-            </h3>
-            <div class="mid-recipe">
-              <p>Joana Jardim</p>
-              <button class="like-btn">
-                <img src="../assets/icons/favorite_border.png" alt="" />
-                <div>37</div>
-              </button>
+          <!-- Footer -->
+          <footer class="footer">
+            <div class="pagination">
+              <img src="../assets/icons/Item → Button.png" alt="" />
+              <button class="active">1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>...</button>
+              <button>1037</button>
+              <button>1038</button>
+              <img src="../assets/icons/Item → Next page.png" alt="" />
             </div>
-
-            <div class="mid-recipe-two">
-              <img src="../assets/icons/vegetable-tag.png" alt="" />
-              <p>Vegetarian dishes</p>
-            </div>
-            <div class="recipe-stats">
-              <p>by</p>
-              <p>Energy</p>
-              <p>Fat</p>
-              <p>Carbohydrate</p>
-              <p>Protein</p>
-            </div>
-
-            <div class="recipe-ingredient">
-              <p>100g</p>
-              <p>143kcal</p>
-              <p>6 g</p>
-              <p>18 g</p>
-              <p>5 g</p>
-            </div>
-          </div>
-        </div>
-        <!-- Recipe Card 3 -->
-        <div class="recipe-card">
-          <div class="header-left-recipe">
-            <img
-              class="conmunity-icon"
-              src="../assets/icons/Community.png"
-              alt=""
-            />
-            <div class="recipe-tag">Community Recipes</div>
-          </div>
-
-          <div class="header-right-recipe">
-            <h3>
-              Turmeric Roasted Cauliflower<br />
-              Salad (lowfodmap)
-            </h3>
-            <div class="mid-recipe">
-              <p>Joana Jardim</p>
-              <button class="like-btn">
-                <img src="../assets/icons/favorite_border.png" alt="" />
-                <div>37</div>
-              </button>
-            </div>
-
-            <div class="mid-recipe-two">
-              <img src="../assets/icons/vegetable-tag.png" alt="" />
-              <p>Vegetarian dishes</p>
-            </div>
-            <div class="recipe-stats">
-              <p>by</p>
-              <p>Energy</p>
-              <p>Fat</p>
-              <p>Carbohydrate</p>
-              <p>Protein</p>
-            </div>
-
-            <div class="recipe-ingredient">
-              <p>100g</p>
-              <p>143kcal</p>
-              <p>6 g</p>
-              <p>18 g</p>
-              <p>5 g</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Recipe Card 4 -->
-        <div class="recipe-card">
-          <div class="header-left-recipe">
-            <img
-              class="conmunity-icon"
-              src="../assets/icons/Community.png"
-              alt=""
-            />
-            <div class="recipe-tag">Community Recipes</div>
-          </div>
-
-          <div class="header-right-recipe">
-            <h3>
-              Turmeric Roasted Cauliflower<br />
-              Salad (lowfodmap)
-            </h3>
-            <div class="mid-recipe">
-              <p>Joana Jardim</p>
-              <button class="like-btn">
-                <img src="../assets/icons/favorite_border.png" alt="" />
-                <div>37</div>
-              </button>
-            </div>
-
-            <div class="mid-recipe-two">
-              <img src="../assets/icons/vegetable-tag.png" alt="" />
-              <p>Vegetarian dishes</p>
-            </div>
-            <div class="recipe-stats">
-              <p>by</p>
-              <p>Energy</p>
-              <p>Fat</p>
-              <p>Carbohydrate</p>
-              <p>Protein</p>
-            </div>
-
-            <div class="recipe-ingredient">
-              <p>100g</p>
-              <p>143kcal</p>
-              <p>6 g</p>
-              <p>18 g</p>
-              <p>5 g</p>
-            </div>
-          </div>
-        </div>
+          </footer>
+        </main>
       </div>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="pagination">
-          <img src="../assets/icons/Item → Button.png" alt="" />
-          <button class="active">1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>...</button>
-          <button>1037</button>
-          <button>1038</button>
-          <img src="../assets/icons/Item → Next page.png" alt="" />
-        </div>
-      </footer>
-    </main>
+    </div>
+    <script src="../js/homepage.js"></script>
   </body>
 </html>
