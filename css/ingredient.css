@@ -11,7 +11,7 @@ body {
     background-color: #f3f3f4;
 }
 body::-webkit-scrollbar{
-    width: 1px;
+    display: none;
 }
 .all-content{
     display: flex;
@@ -19,7 +19,8 @@ body::-webkit-scrollbar{
 
 /* Header trên: Chứa Menu và Cường Trần */
 .top-header {
-    width: 107%;
+    position: fixed;
+    width: 84%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,8 +43,10 @@ body::-webkit-scrollbar{
 }
 /* Header dưới: Chứa Recipes và phần mô tả */
 .bottom-header {
-    width: 107%;
+    position: fixed;
+    width: 84%;
     padding: 20px;
+    margin-top: 55px;
     background-color: white;
     border-bottom: 1px solid #ddd;
 }
@@ -68,7 +71,7 @@ body::-webkit-scrollbar{
     margin: 0 auto;
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    margin-top: 170px;
     margin-bottom: 20px;
     border-radius: 3px;
 }

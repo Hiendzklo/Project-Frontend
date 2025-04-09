@@ -112,13 +112,11 @@
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
-    display: block;
+    display: none;
     position: absolute;
     top: 10px; /* Vị trí thông báo lỗi ở góc trên bên trái */
     left: 10px;
     width:299px;
-    display: flex;
-    flex-direction: column; /* Để có thể đặt các thành phần theo cột */
   }
   
   .error-header {
@@ -160,13 +158,11 @@
     border-radius: 5px;
     margin-top: 60px;
     margin-bottom: 10px;
-    display: block;
+    display: none;  
     position: absolute;
     top: 60px; /* Vị trí thông báo thành công ở dưới thông báo lỗi */
     left: 10px;
     width:299px;
-    display: flex;
-    align-items: center;
   }
   
   .success-icon {

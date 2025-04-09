@@ -1,11 +1,12 @@
   .sidebar {
+    position: sticky;
+    top: 0;
     width: 250px;
     background-color: #2f3b45;
     color: white;
-    height: 100vh;
+    height: 729px;
     padding-top: 20px;
   }
-  
   .sidebar-header {
     text-align: center;
     margin-bottom: 40px;
@@ -58,7 +59,6 @@
     background-color: #12896D; /* Nền xanh cho Sign out */
     padding: 10px 20px;
     width: 16.45%;
-    margin-top: 15px;
   }
   
 

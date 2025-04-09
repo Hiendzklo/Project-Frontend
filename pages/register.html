@@ -12,18 +12,13 @@
         <img src="../assets/icons/logo.png" alt="Nutrium Logo" class="logo" />
         <h2>Please sign up</h2>
         <form>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email address"
-            required
-          />
-          <input type="text" name="username" placeholder="Username" required />
+          <input type="email" name="email" placeholder="Email address" />
+          <input type="text" name="username" placeholder="Username" />
+          <input type="password" name="password" placeholder="Password" />
           <input
             type="password"
-            name="password"
-            placeholder="Password"
-            required
+            name="confirmPassword"
+            placeholder="ConfirmPassword"
           />
           <p class="account-link">
             Already have an account,
@@ -31,6 +26,39 @@
           </p>
           <button type="submit" class="sign-up-btn">Sign up</button>
         </form>
+        <!-- Thông báo lỗi với icon ảnh -->
+        <div class="message error">
+          <div class="error-header">
+            <!-- Icon lỗi -->
+            <img
+              src="../assets/icons/remove_circle.png"
+              alt="Error Icon"
+              class="error-icon"
+            />
+            <!-- Từ "Error" -->
+            <span class="error-text">Error</span>
+            <!-- Icon đóng -->
+            <img
+              src="../assets/icons/CloseButton.png"
+              alt="Close Icon"
+              class="error-close-icon"
+            />
+          </div>
+          <div class="error-detail">
+            Mật khẩu không được bỏ trống<br />
+            Email không được bỏ trống
+          </div>
+        </div>
+
+        <!-- Thông báo thành công với icon ảnh -->
+        <div class="message success">
+          <img
+            src="../assets/icons/check_circle.png"
+            alt="Success Icon"
+            class="success-icon"
+          />
+          Đăng nhập thành công
+        </div>
         <footer>© 2025 - Nguyễn Duy Hiển</footer>
       </div>
     </div>

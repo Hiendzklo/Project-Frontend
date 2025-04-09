@@ -322,6 +322,7 @@
     justify-content: end;
     gap: 10px;
     padding: 0 0 30px 0;
+    margin-top: 20px;
 }
 
 .cancel-btn, .save-close-btn {

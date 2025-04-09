@@ -84,6 +84,73 @@
   .sign-up-btn:hover {
     background-color: #0056b3;
   }
+  /* Phần thông báo lỗi */
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: none;
+  position: absolute;
+  top: 10px; /* Vị trí thông báo lỗi ở góc trên bên trái */
+  left: 10px;
+  width:299px;
+}
+
+.error-header {
+  display: flex;
+  align-items: center; /* Đảm bảo các phần tử thẳng hàng ngang */
+  margin-bottom: 5px; /* Khoảng cách dưới header */
+}
+
+.error-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.error-close-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 190px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.error-text {
+  font-weight: bold; /* Làm chữ Error đậm hơn */
+}
+
+.error-detail {
+  font-size: 14px;
+  margin-left: 26px; /* Đảm bảo khoảng cách từ icon lỗi */
+}
+
+
+/* Phần thông báo thành công */
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  display: none;
+  position: absolute;
+  top: 60px; /* Vị trí thông báo thành công ở dưới thông báo lỗi */
+  left: 10px;
+  width:299px;
+}
+
+.success-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  display: inline-block;
+}
   
   footer {
     margin-top: 20px;
@@ -91,4 +158,5 @@
     color: #777;
     text-align: left;
   }
+  
   
