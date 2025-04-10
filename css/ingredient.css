@@ -190,6 +190,7 @@ body::-webkit-scrollbar{
     gap: 10px;
     height: 65px;
     border: 1px solid #ccc;
+    margin-top: 10px;
 }
 .create-food img{
     padding: 0 0 0 10px;

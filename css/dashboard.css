@@ -51,14 +51,14 @@
   /* Phần Sign out */
   .logout {
     bottom: 20px;
-    width: 608%;
+    width: 100%;
     text-align: center;
   }
   
   .logout .menu-item {
     background-color: #12896D; /* Nền xanh cho Sign out */
     padding: 10px 20px;
-    width: 16.45%;
+    width: 100%;
   }
   
 
