@@ -27,10 +27,13 @@ function drawChart() {
 // Giả sử thực phẩm sẽ được load từ localStorage
 let foods = [];
 let filteredFoods = [];
+let ingredientList = []; // Thêm một danh sách để lưu trữ các thực phẩm đã thêm vào
+let totalWeight = 0; // Biến lưu trữ tổng trọng lượng
 
 // Hàm gọi khi trang được tải
 window.addEventListener("load", () => {
   loadFoods(); // Lấy dữ liệu thực phẩm từ localStorage và render vào form-add
+  loadIngredients(); // Lấy các thực phẩm đã thêm từ localStorage
 
   // Gắn sự kiện cho tìm kiếm thực phẩm
   document.querySelector(".search-food").addEventListener("input", (event) => {
@@ -66,6 +69,17 @@ function loadFoods() {
   filteredFoods = [...foods]; // Copy danh sách thực phẩm để xử lý sau
 
   renderFoodsInFormAdd(); // Render thực phẩm vào form-add
+}
+
+// Hàm load ingredients từ localStorage
+function loadIngredients() {
+  ingredientList = JSON.parse(localStorage.getItem("ingredients")) || [];
+  totalWeight = parseFloat(localStorage.getItem("totalWeight")) || 0; // Lấy tổng trọng lượng từ localStorage
+  document.querySelector(".name-final-weight-text").value = totalWeight; // Hiển thị tổng trọng lượng vào Final Weight
+
+  ingredientList.forEach((foodName) => {
+    addFoodToIngredients(foodName, true); // Thêm thực phẩm vào Ingredients mà không yêu cầu nhấn nút cộng
+  });
 }
 
 // Hàm render thực phẩm vào phần .form-add
@@ -106,23 +120,12 @@ function renderFoodsInFormAdd() {
   // Gắn sự kiện click cho dấu cộng
   document.querySelectorAll("#add-icon-food").forEach((icon) => {
     icon.addEventListener("click", (event) => {
-      console.log("111");
-
       const foodName = event.target
         .closest(".list-table")
         .querySelector(".table-header-tiltel").textContent;
       addFoodToIngredients(foodName); // Thêm thực phẩm vào Ingredients
     });
   });
-}
-
-// Hàm tính tổng dinh dưỡng (không bao gồm kcal)
-function calculateTotalNutrients(food) {
-  const fat = parseFloat(food.nutrition.fat || 0);
-  const carbohydrate = parseFloat(food.nutrition.carbohydrate || 0);
-  const protein = parseFloat(food.nutrition.protein || 0);
-
-  return fat + carbohydrate + protein; // Tính tổng dinh dưỡng mà không tính energy
 }
 
 // Hàm tìm kiếm thực phẩm theo tên
@@ -160,53 +163,92 @@ function sortByNutrient(nutrient) {
 }
 
 // Hàm thêm thực phẩm vào Ingredients
-function addFoodToIngredients(foodName) {
+function addFoodToIngredients(foodName, fromLocalStorage = false) {
   const ingredientContainer = document.querySelector(".ingredients-one");
 
   // Kiểm tra xem thực phẩm đã có trong danh sách chưa
-  if (
-    ![...ingredientContainer.getElementsByClassName("title-one")].some((item) =>
-      item.textContent.includes(foodName)
-    )
-  ) {
-    // Lấy thực phẩm từ danh sách foods
-    const food = foods.find((f) => f.name === foodName); // Lấy thực phẩm từ danh sách foods
+  const existingFoodItem = [
+    ...ingredientContainer.getElementsByClassName("title-one"),
+  ].find((item) => item.textContent.includes(foodName));
 
-    // Kiểm tra nếu food có tồn tại
-    if (!food) {
-      console.error("Food not found!");
-      return;
-    }
-
-    const foodItem = document.createElement("div");
-    foodItem.classList.add("ingredients-one-item");
-    foodItem.style.display = "flex"; // Đảm bảo phần tử ingredients-one được hiển thị khi thêm thực phẩm vào
-    foodItem.innerHTML = `
-        <div class="ingredients-one-content">
-          <div class="title-one">${food.name} (${food.quantity}g)</div>
-          <div class="add-one">
-            <i class="bi bi-plus-lg" id="add-icon"></i>
-            <input
-              class="input-one"
-              placeholder="Add new food equivalent"
-              type="text"
-            />
-          </div>
-        </div>
-        <i class="bi bi-trash-fill trash-icon" id="trash-icon"></i>
-      `;
-
-    // Thêm thực phẩm vào danh sách ingredient
-    ingredientContainer.style.display = "flex"; // Đảm bảo phần tử .ingredients-one được hiển thị
-    ingredientContainer.appendChild(foodItem);
-
-    // Thêm sự kiện xóa cho trash icon
-    foodItem.querySelector(".trash-icon").addEventListener("click", () => {
-      foodItem.remove(); // Xóa thực phẩm khỏi danh sách ingredients
-    });
-
-    console.log("Food added to ingredients:", food.name);
+  // Nếu thực phẩm đã có trong danh sách
+  if (existingFoodItem) {
+    return; // Nếu thực phẩm đã có thì không làm gì
   }
+
+  // Lấy thực phẩm từ danh sách foods
+  const food = foods.find((f) => f.name === foodName); // Lấy thực phẩm từ danh sách foods
+
+  // Kiểm tra nếu food có tồn tại
+  if (!food) {
+    console.error("Food not found!");
+    return;
+  }
+
+  const foodItem = document.createElement("div");
+  foodItem.classList.add("ingredients-one-item");
+  foodItem.style.display = "flex"; // Đảm bảo phần tử ingredients-one được hiển thị khi thêm thực phẩm vào
+  foodItem.innerHTML = `        
+            <div class="ingredients-one-content">
+              <div class="title-one">${food.name} (${food.quantity}g)</div>
+              <div class="add-one">
+                <i class="bi bi-plus-lg" id="add-icon"></i>
+                <div class="input-one">Add new food equivalent</div> <!-- Dòng này sẽ cố định -->
+              </div>
+            </div>
+            <i class="bi bi-trash-fill trash-icon" id="trash-icon"></i>
+          `;
+
+  // Thêm thực phẩm vào danh sách ingredient
+  ingredientContainer.style.display = "flex"; // Đảm bảo phần tử .ingredients-one được hiển thị
+  ingredientContainer.appendChild(foodItem);
+
+  // Thêm thực phẩm vào danh sách ingredientList
+  ingredientList.push(foodName);
+  localStorage.setItem("ingredients", JSON.stringify(ingredientList)); // Lưu lại vào localStorage
+
+  // Thêm sự kiện click cho dấu cộng (tự động thêm khi thực phẩm được render)
+  foodItem.querySelector("#add-icon").addEventListener("click", () => {
+    // Lấy số lượng thực phẩm cần cộng (convert thành số nếu cần)
+    let addedWeight = parseFloat(food.quantity) || 0;
+
+    // Lấy giá trị hiện tại của Final Weight và cộng thêm
+    const finalWeightInput = document.querySelector(".name-final-weight-text");
+    let finalWeight = parseFloat(finalWeightInput.value) || 0;
+
+    // Cộng số lượng vào Final Weight
+    finalWeight += addedWeight;
+
+    // Cập nhật vào Final Weight input
+    finalWeightInput.value = finalWeight;
+
+    // Cập nhật lại vào localStorage
+    localStorage.setItem("totalWeight", finalWeight);
+  });
+
+  // Thêm sự kiện xóa cho trash icon
+  foodItem.querySelector(".trash-icon").addEventListener("click", () => {
+    foodItem.remove(); // Xóa thực phẩm khỏi danh sách ingredients
+
+    // Xóa thực phẩm khỏi ingredientList và cập nhật lại vào localStorage
+    ingredientList = ingredientList.filter((item) => item !== foodName);
+    localStorage.setItem("ingredients", JSON.stringify(ingredientList));
+
+    // Cập nhật lại tổng trọng lượng
+    totalWeight -= food.quantity;
+    localStorage.setItem("totalWeight", totalWeight);
+
+    // Cập nhật vào Final Weight input
+    document.querySelector(".name-final-weight-text").value = totalWeight;
+  });
+
+  console.log("Food added to ingredients:", food.name);
+}
+
+// Hàm cập nhật vào Final Weight input
+function updateFinalWeight(weight) {
+  const finalWeightInput = document.querySelector(".name-final-weight-text");
+  finalWeightInput.value = weight; // Cập nhật giá trị vào Final Weight input
 }
 
 // Hàm để chuyển mũi tên và ẩn/hiện bảng thực phẩm
