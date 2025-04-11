@@ -611,6 +611,7 @@ width: 39px;
     padding: 20px;
     text-align: right;
     background-color: white;
+    margin-top: 400px;
 }
 
 .footer img {
@@ -889,3 +890,9 @@ tr td:nth-child(2) {
 tr td:nth-child(2) span.number {
     font-weight: 700;
 }
+
+#food-list-container {
+    display: flex;
+    flex-direction: column; /* Hiển thị các thực phẩm theo cột */
+    gap: 15px; /* Khoảng cách giữa các thực phẩm */
+  }

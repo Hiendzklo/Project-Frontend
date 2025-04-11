@@ -30,8 +30,10 @@ window.addEventListener("load", () => {
 });
 
 // Hàm load foods từ localStorage
-function loadFoods(foods = JSON.parse(localStorage.getItem("foods")) || []) {
-  filteredFoods = [...foods]; // Đặt filteredFoods làm danh sách thực phẩm từ localStorage
+function loadFoods() {
+  // Lấy danh sách thực phẩm từ localStorage và cập nhật filteredFoods
+  let foods = JSON.parse(localStorage.getItem("foods")) || [];
+  filteredFoods = [...foods];
 
   const foodList = document.querySelector(".list-food");
   foodList.innerHTML = ""; // Làm sạch danh sách thực phẩm
@@ -433,6 +435,7 @@ function updateFoodInList(updatedFood) {
 
 // Lưu thực phẩm mới vào localStorage
 function saveNewFood() {
+  // Lấy giá trị từ các trường input
   const name = document.getElementById("food-name").value;
   const source = document.getElementById("food-source").value;
   const category = document.getElementById("food-category").value;
@@ -494,11 +497,20 @@ function saveNewFood() {
     micronutrients,
   };
 
-  foods.push(newFood); // Thêm thực phẩm mới vào danh sách
-  localStorage.setItem("foods", JSON.stringify(foods)); // Lưu lại danh sách thực phẩm mới vào localStorage
+  // Lấy dữ liệu thực phẩm hiện có từ localStorage
+  foods = JSON.parse(localStorage.getItem("foods")) || [];
 
-  loadFoods(); // Tải lại thực phẩm sau khi thêm mới
-  closeAddNewFoodModal(); // Đóng modal
+  // Thêm thực phẩm mới vào danh sách thực phẩm
+  foods.push(newFood);
+
+  // Lưu lại toàn bộ danh sách thực phẩm vào localStorage
+  localStorage.setItem("foods", JSON.stringify(foods));
+
+  // Tải lại thực phẩm sau khi thêm mới
+  loadFoods();
+
+  // Đóng modal
+  closeAddNewFoodModal();
 }
 
 // Lưu thực phẩm vào localStorage

@@ -235,6 +235,8 @@
                         type="text"
                       />
                     </div>
+
+                    <!-- Form Search (Giữ lại phần tìm kiếm và sắp xếp) -->
                     <div class="form-search">
                       <input
                         class="search-food"
@@ -243,12 +245,15 @@
                       />
                       <div class="form-search-mid">
                         <i class="bi bi-sort-up-alt" id="sort-icon"></i>
-                        <input
-                          class="sort-nutrient"
-                          placeholder="Sort by nutrient"
-                          type="text"
-                        />
+                        <select class="sort-nutrient">
+                          <option value="">Sort by nutrient</option>
+                          <option value="energy">Energy</option>
+                          <option value="fat">Fat</option>
+                          <option value="carbohydrate">Carbohydrate</option>
+                          <option value="protein">Protein</option>
+                        </select>
                       </div>
+
                       <input
                         class="all-data"
                         placeholder="All databases"
@@ -256,6 +261,7 @@
                       />
                     </div>
 
+                    <!-- Nutritional Tag (Thẻ thông tin dinh dưỡng) -->
                     <div class="nutritional-tag">
                       <div class="nutritional-tiltel">
                         Nutritional Information
@@ -265,114 +271,13 @@
                       <div class="nutritional-carbohydrate">Carboh…</div>
                       <div class="nutritional-protein">Protein</div>
                     </div>
-                    <div class="list-table-header">
-                      <div class="table-header">
-                        <div class="table-header-content">
-                          <div class="table-header-tiltel">
-                            Keto 90 Second Bread.
-                          </div>
-                          <div class="table-header-text">Community Recipes</div>
-                        </div>
-                        <div class="small-table">
-                          <div class="small-table-number">1</div>
-                          <div class="small-table-text">portion (87 grams)</div>
-                          <div class="small-table-data">87g</div>
-                        </div>
-                      </div>
-                      <div class="food-data">
-                        <p>301 kcal</p>
-                        <p>27 g</p>
-                        <p>6 g</p>
-                        <p>11 g</p>
-                      </div>
-                      <i class="bi bi-plus-lg" id="add-icon-food"></i>
+
+                    <!-- Thực phẩm được render ở đây -->
+                    <div class="list-table-header" id="food-list-container">
+                      <!-- Các thực phẩm sẽ được render ở đây thông qua JavaScript -->
                     </div>
 
-                    <div class="list-table">
-                      <div class="table-header">
-                        <div class="table-header-content">
-                          <div class="table-header-tiltel">
-                            Keto 90 Second Bread.
-                          </div>
-                          <div class="table-header-text">Community Recipes</div>
-                        </div>
-                        <div class="small-table">
-                          <div class="small-table-number">1</div>
-                          <div class="small-table-text">portion (87 grams)</div>
-                          <div class="small-table-data">87g</div>
-                        </div>
-                      </div>
-                      <div class="food-data">
-                        <p>301 kcal</p>
-                        <p>27 g</p>
-                        <p>6 g</p>
-                        <p>11 g</p>
-                      </div>
-                    </div>
-                    <div class="list-table">
-                      <div class="table-header">
-                        <div class="table-header-content">
-                          <div class="table-header-tiltel">
-                            Keto 90 Second Bread.
-                          </div>
-                          <div class="table-header-text">Community Recipes</div>
-                        </div>
-                        <div class="small-table">
-                          <div class="small-table-number">1</div>
-                          <div class="small-table-text">portion (87 grams)</div>
-                          <div class="small-table-data">87g</div>
-                        </div>
-                      </div>
-                      <div class="food-data">
-                        <p>301 kcal</p>
-                        <p>27 g</p>
-                        <p>6 g</p>
-                        <p>11 g</p>
-                      </div>
-                    </div>
-                    <div class="list-table">
-                      <div class="table-header">
-                        <div class="table-header-content">
-                          <div class="table-header-tiltel">
-                            Keto 90 Second Bread.
-                          </div>
-                          <div class="table-header-text">Community Recipes</div>
-                        </div>
-                        <div class="small-table">
-                          <div class="small-table-number">1</div>
-                          <div class="small-table-text">portion (87 grams)</div>
-                          <div class="small-table-data">87g</div>
-                        </div>
-                      </div>
-                      <div class="food-data">
-                        <p>301 kcal</p>
-                        <p>27 g</p>
-                        <p>6 g</p>
-                        <p>11 g</p>
-                      </div>
-                    </div>
-                    <div class="list-table">
-                      <div class="table-header">
-                        <div class="table-header-content">
-                          <div class="table-header-tiltel">
-                            Keto 90 Second Bread.
-                          </div>
-                          <div class="table-header-text">Community Recipes</div>
-                        </div>
-                        <div class="small-table">
-                          <div class="small-table-number">1</div>
-                          <div class="small-table-text">portion (87 grams)</div>
-                          <div class="small-table-data">87g</div>
-                        </div>
-                      </div>
-                      <div class="food-data">
-                        <p>301 kcal</p>
-                        <p>27 g</p>
-                        <p>6 g</p>
-                        <p>11 g</p>
-                      </div>
-                    </div>
-                    <!-- Footer -->
+                    <!-- Footer (phần phân trang) -->
                     <footer class="footer">
                       <div class="pagination">
                         <img src="../assets/icons/Item → Button.png" alt="" />
