@@ -433,8 +433,9 @@ function updateFoodInList(updatedFood) {
   }
 }
 
+let saveFood = document.querySelector(".save-close-btn");
 // Lưu thực phẩm mới vào localStorage
-function saveNewFood() {
+saveFood.onclick = function saveNewFood() {
   // Lấy giá trị từ các trường input
   const name = document.getElementById("food-name").value;
   const source = document.getElementById("food-source").value;
@@ -511,7 +512,7 @@ function saveNewFood() {
 
   // Đóng modal
   closeAddNewFoodModal();
-}
+};
 
 // Lưu thực phẩm vào localStorage
 function saveFoodsToLocalStorage() {

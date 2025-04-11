@@ -315,12 +315,20 @@
     color: #888;
     margin-bottom: 20px;
 }
-.ingredients-one{
+.ingredients-one {
+    display: none;  /* Ẩn mặc định */
+    flex-direction: column;  /* Thêm các phần tử theo cột */
+    margin-bottom: 10px;
+  }
+  
+.ingredients-one-content {
     display: flex;
-    width: 742px;
-    height: 90px;
-    margin-bottom: 7px;
-}
+    flex-direction: column; /* Xếp các phần tử theo chiều dọc */
+  }
+  #trash-icon {
+    margin-top: 10px;
+    cursor: pointer;
+  }
 
 .title-one {
     width: 703px;
@@ -381,9 +389,18 @@ width: 39px;
     width: 39px;
     height: 39.5px;
     color: #1AB394;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 7px 0 5px 10px;
+    border: 1px solid #EEEEEE;
+    background-color: #EEEEEE;
+
+
+}
+
+#arrow-down{
+    width: 39px;
+    height: 39.5px;
+    color: #1AB394;
+    padding: 7px 0 5px 10px;
     border: 1px solid #EEEEEE;
     background-color: #EEEEEE;
 

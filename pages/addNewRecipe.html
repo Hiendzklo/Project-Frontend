@@ -192,43 +192,19 @@
                   <p class="ingredients-text">
                     Search and add ingredients to the recipe
                   </p>
-                  <div class="ingredients-one">
-                    <div class="ingredients-one-content">
-                      <div class="title-one">
-                        1 serving of babyfood, water, bottled, GERBER, without
-                        added fluoride (113 g)
-                      </div>
-                      <div class="add-one">
-                        <i class="bi bi-plus-lg" id="add-icon"></i>
-                        <input
-                          class="input-one"
-                          placeholder="Add new food equivalent"
-                          type="text"
-                        />
-                      </div>
-                    </div>
-                    <i class="bi bi-trash-fill" id="trash-icon"></i>
+                  <!-- phần ingredients-one này sẽ không có sẵn thực phẩm nữa, mà sẽ được thêm vào thông qua JS -->
+                  <div class="ingredients-one" style="display: none">
+                    <!-- Nội dung thực phẩm sẽ được thêm vào qua JavaScript -->
                   </div>
 
-                  <div class="ingredients-one">
-                    <div class="ingredients-one-content">
-                      <div class="title-one">
-                        1 serving of babyfood, tropical fruit medley (88 g)
-                      </div>
-                      <div class="add-one">
-                        <i class="bi bi-plus-lg" id="add-icon"></i>
-                        <input
-                          class="input-one"
-                          placeholder="Add new food equivalent"
-                          type="text"
-                        />
-                      </div>
-                    </div>
-                    <i class="bi bi-trash-fill" id="trash-icon"></i>
-                  </div>
                   <div class="form-add">
                     <div class="form-header">
                       <i class="bi bi-chevron-up" id="arrow-up"></i>
+                      <i
+                        class="bi bi-chevron-down"
+                        id="arrow-down"
+                        style="display: none"
+                      ></i>
                       <input
                         class="add-ingredient"
                         placeholder="Add new ingredient"
@@ -236,7 +212,7 @@
                       />
                     </div>
 
-                    <!-- Form Search (Giữ lại phần tìm kiếm và sắp xếp) -->
+                    <!-- Form Search -->
                     <div class="form-search">
                       <input
                         class="search-food"
@@ -253,7 +229,6 @@
                           <option value="protein">Protein</option>
                         </select>
                       </div>
-
                       <input
                         class="all-data"
                         placeholder="All databases"
@@ -261,18 +236,18 @@
                       />
                     </div>
 
-                    <!-- Nutritional Tag (Thẻ thông tin dinh dưỡng) -->
+                    <!-- Nutritional Information -->
                     <div class="nutritional-tag">
                       <div class="nutritional-tiltel">
                         Nutritional Information
                       </div>
                       <div class="nutritional-energy">Energy</div>
                       <div class="nutritional-fat">Fat</div>
-                      <div class="nutritional-carbohydrate">Carboh…</div>
+                      <div class="nutritional-carbohydrate">Carbohydrate</div>
                       <div class="nutritional-protein">Protein</div>
                     </div>
 
-                    <!-- Thực phẩm được render ở đây -->
+                    <!-- Thực phẩm sẽ được render vào đây -->
                     <div class="list-table-header" id="food-list-container">
                       <!-- Các thực phẩm sẽ được render ở đây thông qua JavaScript -->
                     </div>
@@ -294,6 +269,9 @@
                       </div>
                     </footer>
                   </div>
+
+                  <!-- Không còn thực phẩm cố định ở đây nữa -->
+                  <!-- Các thực phẩm từ food-list-container sẽ được thêm vào khi nhấn dấu cộng từ danh sách -->
                 </div>
 
                 <div class="cooking-tag">
