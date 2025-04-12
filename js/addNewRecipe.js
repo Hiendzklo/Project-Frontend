@@ -37,6 +37,12 @@ let totalPages = 0; // Tổng số trang, sẽ được tính sau khi lọc th�
 window.addEventListener("load", () => {
   loadFoods(); // Lấy dữ liệu thực phẩm từ localStorage và render vào form-add
 
+  // Cập nhật tổng quantity khi trang tải lại
+  const totalQuantity = localStorage.getItem("totalQuantity");
+  if (totalQuantity !== null) {
+    document.querySelector(".name-final-weight-text").value = totalQuantity;
+  }
+
   // Gắn sự kiện cho tìm kiếm thực phẩm
   document.querySelector(".search-food").addEventListener("input", (event) => {
     searchFoods(event.target.value);
