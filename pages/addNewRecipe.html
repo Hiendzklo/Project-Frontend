@@ -255,17 +255,8 @@
                     <!-- Footer (phần phân trang) -->
                     <footer class="footer">
                       <div class="pagination">
-                        <img src="../assets/icons/Item → Button.png" alt="" />
-                        <button class="active">1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button>...</button>
-                        <button>1037</button>
-                        <button>1038</button>
-                        <img
-                          src="../assets/icons/Item → Next page.png"
-                          alt=""
-                        />
+                        <button id="prev-page">Previous</button>
+                        <button id="next-page">Next</button>
                       </div>
                     </footer>
                   </div>
@@ -336,19 +327,17 @@
                   ></div>
                 </div>
 
-                <div class="container">
-                  <div class="micronutrients-table">
-                    Micronutrients per portion
-                  </div>
-                  <div class="subheading">
-                    Micronutrients distribution of the recipe
-                  </div>
-                  <table>
-                    <tbody id="micronutrients-table-body">
-                      <!-- Các dòng vi chất dinh dưỡng sẽ được thêm vào đây thông qua JavaScript -->
-                    </tbody>
-                  </table>
-                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Micronutrient</th>
+                      <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody id="micronutrients-table-body">
+                    <!-- Các dòng vi chất dinh dưỡng sẽ được thêm vào qua JavaScript -->
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

@@ -297,7 +297,7 @@
 }
 .ingredients-tag {
     width: 800.55px;
-    height: 1015px;
+    height: 100%;
     margin-left: 20px;
     padding: 20px 0 0 20px;
     display: flex;
