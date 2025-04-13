@@ -74,46 +74,59 @@ function renderRecipeCard(recipe) {
   const recipeCard = document.createElement("div");
   recipeCard.classList.add("recipe-card");
 
+  // Thêm data-id để nhận diện công thức khi click
+  recipeCard.setAttribute("data-id", recipe.id);
+  console.log("Recipe ID: ", recipe.id); // In ra ID công thức để kiểm tra
+
   recipeCard.innerHTML = `
-      <div class="header-left-recipe">
-        <img class="community-icon" src="../assets/icons/Community.png" alt="" />
-        <div class="recipe-tag">Community Recipes</div>
-      </div>
-  
-      <div class="header-right-recipe">
-        <h3>${recipe.name}</h3>
-        <div class="mid-recipe">
-          <p>${recipe.description || "Unknown"}</p>
-          <button class="like-btn">
-            <img src="../assets/icons/favorite_border.png" alt="" />
-            <div>${recipe.likes || 0}</div>
-          </button>
-        </div>
-  
-        <div class="mid-recipe-two">
-          <img src="../assets/icons/vegetable-tag.png" alt="" />
-          <p>${recipe.category || "Category"}</p>
-        </div>
-  
-        <div class="recipe-stats">
-          <p>by</p>
-          <p> kcal</p>
-          <p> Fat</p>
-          <p> Carbohydrate</p>
-          <p> Protein</p>
-        </div>
-  
-        <div class="recipe-ingredient">
-          <p>${recipe.finalWeight || 0} g</p>
-          <p>${recipe.nutrients.energy || 0} kcal</p>
-          <p class="recipe-fat">${recipe.nutrients.fat || 0} g</p>
-          <p class="recipe-carbohydrate">${
-            recipe.nutrients.carbohydrate || 0
-          } g</p>
-          <p class="recipe-protein">${recipe.nutrients.protein || 0} g</p>
-        </div>
-      </div>
-    `;
+            <div class="header-left-recipe">
+              <img class="community-icon" src="../assets/icons/Community.png" alt="" />
+              <div class="recipe-tag">Community Recipes</div>
+            </div>
+    
+            <div class="header-right-recipe">
+              <h3>${recipe.name}</h3>
+              <div class="mid-recipe">
+                <p>${recipe.description || "Unknown"}</p>
+                <button class="like-btn">
+                  <img src="../assets/icons/favorite_border.png" alt="" />
+                  <div>${recipe.likes || 0}</div>
+                </button>
+              </div>
+    
+              <div class="mid-recipe-two">
+                <img src="../assets/icons/vegetable-tag.png" alt="" />
+                <p>${recipe.category || "Category"}</p>
+              </div>
+    
+              <div class="recipe-stats">
+                <p>by</p>
+                <p> kcal</p>
+                <p> Fat</p>
+                <p> Carbohydrate</p>
+                <p> Protein</p>
+              </div>
+    
+              <div class="recipe-ingredient">
+                <p>${recipe.finalWeight || 0} g</p>
+                <p>${recipe.nutrients.energy || 0} kcal</p>
+                <p class="recipe-fat">${recipe.nutrients.fat || 0} g</p>
+                <p class="recipe-carbohydrate">${
+                  recipe.nutrients.carbohydrate || 0
+                } g</p>
+                <p class="recipe-protein">${recipe.nutrients.protein || 0} g</p>
+              </div>
+            </div>
+          `;
+
+  // Thêm sự kiện click để lưu ID vào localStorage và chuyển đến trang chi tiết
+  recipeCard.addEventListener("click", function (event) {
+    // Lưu ID của công thức vào localStorage
+    localStorage.setItem("selectedRecipeId", recipe.id); // Lưu ID vào localStorage
+
+    // Chuyển đến trang chi tiết công thức
+    window.location.href = "recipeDetail.html"; // Chuyển đến trang chi tiết mà không cần ID trong URL
+  });
 
   recipesContainer.appendChild(recipeCard); // Thêm công thức vào container
 }

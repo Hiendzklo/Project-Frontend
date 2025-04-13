@@ -335,17 +335,33 @@
     color: #888;
     margin-bottom: 20px;
 }
-.ingredient-input{
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    width: 742px;
-    height: 40px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    color: #585858;
-    font-weight: 600;
+.ingredient-input {
+  display: inline-block;   /* Giữ nguyên các nguyên liệu theo hàng ngang */
+  margin: 5px 0;           /* Tạo khoảng cách giữa các nguyên liệu */
+  padding: 5px;            /* Tạo khoảng cách bên trong */
+  border: 1px solid #ddd;  /* Đảm bảo có chỉ một đường viền cho mỗi nguyên liệu */
+  border-radius: 5px;      /* Làm mềm các góc của đường viền */
+  width: calc(100% - 12px); /* Giảm bớt chiều rộng để tránh tràn ra ngoài */
 }
+
+.ingredient-input span {
+  font-size: 14px;   /* Căn chỉnh kích thước chữ */
+  color: #333;       /* Màu chữ */
+}
+
+.ingredient-input input {
+  width: 100%;        /* Đảm bảo ô nhập liệu chiếm đầy chiều rộng */
+  border: none;       /* Loại bỏ border của input */
+  padding: 5px;       /* Tạo khoảng cách bên trong input */
+  font-size: 14px;    /* Căn chỉnh kích thước chữ */
+  box-sizing: border-box;
+}
+
+.ingredient-input input:focus {
+  outline: none;      /* Loại bỏ viền khi ô input được chọn */
+  border: 1px solid #1AB394; /* Màu viền khi ô input được chọn */
+}
+
 .cooking-tag{
   width: 783px;
   height: 253px;
@@ -391,7 +407,11 @@
   width: 703px;
 
 }
-
+.global-content-all{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 .global-content {
     width: 380px;
     height: 249px;
