@@ -202,7 +202,7 @@
     border: 1px solid #EEEEEE;
     background-color: #FAFAFB;
  }
- .name-text {
+ .name-text{
     width: 645px;
     height: 41px;
     font-size: 13px;
@@ -216,6 +216,56 @@
     display: flex;
     margin-top: 6px;
  }
+ .author-text{
+    width: 645px;
+    height: 41px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+ }
+ .total-time-text{
+  width: 645px;
+  height: 41px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border: 1px solid #EEEEEE;
+  background-color: #FFFFFF;
+}
+.preparation-time-text{
+  width: 645px;
+  height: 41px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border: 1px solid #EEEEEE;
+  background-color: #FFFFFF;
+}
+.final-weight-text{
+  width: 645px;
+  height: 41px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border: 1px solid #EEEEEE;
+  background-color: #FFFFFF;
+}
+.portions-text{
+  width: 645px;
+  height: 41px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border: 1px solid #EEEEEE;
+  background-color: #FFFFFF;
+}
  .name-description {
     width: 200px;
     height: 61px;
@@ -225,7 +275,7 @@
     border: 1px solid #EEEEEE;
     background-color: #FAFAFB;
  }
- .name-text-description {
+ .description-text {
     width: 645px;
     height: 61px;
     display: flex;

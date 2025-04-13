@@ -116,7 +116,16 @@
 
                 <div class="mid-recipe-two">
                   <img src="../assets/icons/newCategory.png" alt="" />
-                  <p class="vegetable-text">New category</p>
+                  <select class="vegetable-text">
+                    <option value="all">New Category</option>
+                    <option value="fruit">Fruit</option>
+                    <option value="vegetable">Vegetable</option>
+                    <option value="meat">Meat</option>
+                    <option value="dairy">Dairy</option>
+                    <option value="grain">Grain</option>
+                    <option value="snack">Snack</option>
+                    <option value="beverage">Beverage</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -138,6 +147,7 @@
                   <p class="check-end">
                     Check and edit recipe's basic information
                   </p>
+
                   <div class="name-tag">
                     <div class="name">Name</div>
                     <input class="name-text" type="text" />
@@ -152,13 +162,13 @@
 
                   <div class="name-tag">
                     <div class="name">Total time</div>
-                    <input class="name-text" type="text" />
+                    <input class="total-time-text" type="text" />
                     <i class="bi bi-pencil-fill" id="basic-pencil"></i>
                   </div>
 
                   <div class="name-tag">
                     <div class="name">Preparation time</div>
-                    <input class="name-text" type="text" />
+                    <input class="preparation-time-text" type="text" />
                     <i class="bi bi-pencil-fill" id="basic-pencil"></i>
                   </div>
 
@@ -170,7 +180,7 @@
 
                   <div class="name-tag">
                     <div class="name">Portions</div>
-                    <input class="name-text" type="text" />
+                    <input class="portions-text" type="text" />
                     <i class="bi bi-pencil-fill" id="basic-pencil"></i>
                   </div>
                 </div>
