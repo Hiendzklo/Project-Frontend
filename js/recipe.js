@@ -179,3 +179,9 @@ function renderPagination(totalPages) {
 window.addEventListener("load", () => {
   renderRecipes();
 });
+function logout() {
+  // Xóa thông tin đăng nhập khỏi localStorage
+  localStorage.removeItem("currentUser");
+  // Chuyển hướng về trang đăng nhập
+  window.location.href = "login.html";
+}
