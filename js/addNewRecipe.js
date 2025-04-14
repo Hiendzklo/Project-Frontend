@@ -31,7 +31,7 @@ let filteredFoods = [];
 
 // Biến phân trang
 let currentPage = 1;
-let itemsPerPage = 1; // Số lượng thực phẩm mỗi trang
+let itemsPerPage = 3; // Số lượng thực phẩm mỗi trang
 let totalPages = 0; // Tổng số trang, sẽ được tính sau khi lọc thực phẩm
 
 // Hàm gọi khi trang được tải
@@ -407,48 +407,56 @@ function toggleFoodList() {
 
 // Hàm để hiển thị công thức từ localStorage
 function loadRecipeData() {
-  // Lấy ID của công thức từ localStorage
   const recipeId = localStorage.getItem("selectedRecipeId");
-
-  // Lấy danh sách công thức từ localStorage
   const recipes = JSON.parse(localStorage.getItem("recipes")) || [];
-
-  // Tìm công thức với ID tương ứng
   const recipe = recipes.find((r) => r.id === parseInt(recipeId));
 
-  // Kiểm tra nếu có công thức
   if (recipe) {
-    // Cập nhật thông tin công thức vào các phần tử HTML
-    document.querySelector(".name-text").value = recipe.name || "";
-    document.querySelector(".description-text").value =
-      recipe.description || "";
-    document.querySelector(".author-text").value = recipe.author || "";
-    document.querySelector(".total-time-text").value = recipe.totalTime || "";
-    document.querySelector(".preparation-time-text").value =
-      recipe.preparationTime || "";
-    document.querySelector(".final-weight-text").value =
-      recipe.finalWeight || "";
-    document.querySelector(".portions-text").value = recipe.portions || "";
+    const nameTextElement = document.querySelector(".name-text");
+    if (nameTextElement) nameTextElement.value = recipe.name || "";
 
-    // Cập nhật method text (công thức chế biến)
-    document.querySelector(".method-text").innerText = recipe.method || "";
+    const descriptionTextElement = document.querySelector(".description-text");
+    if (descriptionTextElement)
+      descriptionTextElement.value = recipe.description || "";
 
-    // Cập nhật category (thể loại) từ localStorage vào phần tử category-text
+    const authorTextElement = document.querySelector(".author-text");
+    if (authorTextElement) authorTextElement.value = recipe.author || "";
+
+    const totalTimeTextElement = document.querySelector(".total-time-text");
+    if (totalTimeTextElement)
+      totalTimeTextElement.value = recipe.totalTime || "";
+
+    const preparationTimeTextElement = document.querySelector(
+      ".preparation-time-text"
+    );
+    if (preparationTimeTextElement)
+      preparationTimeTextElement.value = recipe.preparationTime || "";
+
+    const finalWeightTextElement = document.querySelector(".final-weight-text");
+    if (finalWeightTextElement)
+      finalWeightTextElement.value = recipe.finalWeight || "";
+
+    const portionsTextElement = document.querySelector(".portions-text");
+    if (portionsTextElement) portionsTextElement.value = recipe.portions || "";
+
+    const methodTextElement = document.querySelector(".method-text");
+    if (methodTextElement) methodTextElement.innerText = recipe.method || "";
+
     const categoryTextElement = document.querySelector(".category-text");
     if (categoryTextElement) {
-      categoryTextElement.innerText = recipe.category || "Unknown"; // Nếu không có category, sẽ hiển thị "Unknown"
+      categoryTextElement.innerText = recipe.category || "Unknown";
     }
 
-    // Cập nhật ingredients nếu có
     const ingredientsContainer = document.querySelector(".ingredient-input");
-    ingredientsContainer.innerHTML = ""; // Làm sạch trước khi thêm mới
-
-    recipe.ingredients.forEach((ingredient) => {
-      const ingredientElement = document.createElement("div");
-      ingredientElement.classList.add("ingredient-input");
-      ingredientElement.textContent = `${ingredient.name} (${ingredient.quantity}g)`;
-      ingredientsContainer.appendChild(ingredientElement);
-    });
+    if (ingredientsContainer) {
+      ingredientsContainer.innerHTML = "";
+      recipe.ingredients.forEach((ingredient) => {
+        const ingredientElement = document.createElement("div");
+        ingredientElement.classList.add("ingredient-input");
+        ingredientElement.textContent = `${ingredient.name} (${ingredient.quantity}g)`;
+        ingredientsContainer.appendChild(ingredientElement);
+      });
+    }
   } else {
     console.log("No recipe found with this ID.");
   }
@@ -513,6 +521,36 @@ function saveRecipeData() {
 
   isSaving = false;
 }
+
+// Hàm để cập nhật tên người dùng động từ localStorage
+function updateUsername() {
+  // Lấy đối tượng người dùng từ localStorage
+  const users = JSON.parse(localStorage.getItem("users"));
+
+  // Kiểm tra xem có người dùng trong localStorage không và nó không rỗng
+  if (users) {
+    let username;
+
+    // Nếu users là một mảng, lấy tên người dùng từ người dùng đầu tiên
+    if (Array.isArray(users)) {
+      username = users[0].username; // Lấy tên người dùng của người dùng đầu tiên
+    } else {
+      // Nếu users là một đối tượng, chỉ cần lấy tên người dùng trực tiếp
+      username = users.username;
+    }
+
+    // Nếu có tên người dùng, cập nhật span với tên người dùng
+    if (username) {
+      document.querySelector(".user-info span").textContent = username;
+    }
+  } else {
+    // Nếu không có người dùng trong localStorage, đặt giá trị mặc định
+    document.querySelector(".user-info span").textContent = "Guest";
+  }
+}
+
+// Gọi hàm khi trang được tải
+document.addEventListener("DOMContentLoaded", updateUsername);
 
 function logout() {
   // Xóa thông tin đăng nhập khỏi localStorage

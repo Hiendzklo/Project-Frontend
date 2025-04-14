@@ -179,6 +179,36 @@ function renderPagination(totalPages) {
 window.addEventListener("load", () => {
   renderRecipes();
 });
+// Hàm để cập nhật tên người dùng động từ localStorage
+function updateUsername() {
+  // Lấy đối tượng người dùng từ localStorage
+  const users = JSON.parse(localStorage.getItem("users"));
+
+  // Kiểm tra xem có người dùng trong localStorage không và nó không rỗng
+  if (users) {
+    let username;
+
+    // Nếu users là một mảng, lấy tên người dùng từ người dùng đầu tiên
+    if (Array.isArray(users)) {
+      username = users[0].username; // Lấy tên người dùng của người dùng đầu tiên
+    } else {
+      // Nếu users là một đối tượng, chỉ cần lấy tên người dùng trực tiếp
+      username = users.username;
+    }
+
+    // Nếu có tên người dùng, cập nhật span với tên người dùng
+    if (username) {
+      document.querySelector(".user-info span").textContent = username;
+    }
+  } else {
+    // Nếu không có người dùng trong localStorage, đặt giá trị mặc định
+    document.querySelector(".user-info span").textContent = "Guest";
+  }
+}
+
+// Gọi hàm khi trang được tải
+document.addEventListener("DOMContentLoaded", updateUsername);
+
 function logout() {
   // Xóa thông tin đăng nhập khỏi localStorage
   localStorage.removeItem("currentUser");

@@ -1,17 +1,17 @@
-let currentPage = 1; // Start from page 1
-const recipesPerPage = 2; // Number of recipes per page
+let currentPage = 1; // Bắt đầu từ trang 1
+const recipesPerPage = 2; // Số lượng công thức mỗi trang
 
-// Function to load favourite recipes from localStorage and render them
+// Hàm để tải các công thức yêu thích từ localStorage và hiển thị chúng
 function loadFavouriteRecipes() {
   let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
 
-  // Get the recipes container
+  // Lấy container để hiển thị công thức
   const recipesGrid = document.querySelector(".recipes-grid");
 
-  // Clear the current content of the grid
+  // Xóa nội dung hiện tại trong grid
   recipesGrid.innerHTML = "";
 
-  // Filter based on search input
+  // Lọc theo từ khóa tìm kiếm
   const searchQuery = document
     .querySelector(".search-input")
     .value.toLowerCase();
@@ -19,7 +19,7 @@ function loadFavouriteRecipes() {
     .querySelector(".category-input")
     .value.toLowerCase();
 
-  // Filter the favourites based on search and category filter
+  // Lọc các công thức yêu thích theo từ khóa tìm kiếm và bộ lọc thể loại
   const filteredRecipes = favourites.filter((recipe) => {
     const matchesSearch = recipe.name.toLowerCase().includes(searchQuery);
     const matchesCategory = categoryFilter
@@ -28,7 +28,7 @@ function loadFavouriteRecipes() {
     return matchesSearch && matchesCategory;
   });
 
-  // Sort the filtered recipes based on the nutrient input
+  // Sắp xếp các công thức lọc được theo dưỡng chất
   const sortByNutrient = document.querySelector(".sort-input").value;
   if (sortByNutrient) {
     filteredRecipes.sort((a, b) => {
@@ -48,13 +48,13 @@ function loadFavouriteRecipes() {
     });
   }
 
-  // Paginate the filtered recipes
+  // Phân trang các công thức đã lọc
   const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
   const startIndex = (currentPage - 1) * recipesPerPage;
   const endIndex = startIndex + recipesPerPage;
   const currentPageRecipes = filteredRecipes.slice(startIndex, endIndex);
 
-  // Generate the recipe cards
+  // Tạo các thẻ công thức
   currentPageRecipes.forEach((recipe) => {
     const recipeCard = document.createElement("div");
     recipeCard.classList.add("recipe-card");
@@ -94,25 +94,25 @@ function loadFavouriteRecipes() {
         </div>
       `;
 
-    // Append the recipe card to the recipes grid
+    // Thêm thẻ công thức vào grid
     recipesGrid.appendChild(recipeCard);
   });
 
-  // Update the pagination buttons
+  // Cập nhật các nút phân trang
   updatePaginationButtons(totalPages);
 }
 
-// Function to update the pagination buttons
+// Hàm để cập nhật các nút phân trang
 function updatePaginationButtons(totalPages) {
   const pagination = document.querySelector(".pagination");
   pagination.innerHTML = "";
 
-  // Create the previous button
+  // Tạo nút previous (trước)
   const prevButton = document.createElement("img");
   prevButton.src = "../assets/icons/Item → Button.png";
   pagination.appendChild(prevButton);
 
-  // Create page number buttons
+  // Tạo các nút số trang
   for (let i = 1; i <= totalPages; i++) {
     const pageButton = document.createElement("button");
     pageButton.textContent = i;
@@ -126,12 +126,12 @@ function updatePaginationButtons(totalPages) {
     pagination.appendChild(pageButton);
   }
 
-  // Create the next button
+  // Tạo nút next (tiếp theo)
   const nextButton = document.createElement("img");
   nextButton.src = "../assets/icons/Item → Next page.png";
   pagination.appendChild(nextButton);
 
-  // Add event listeners for next and previous buttons
+  // Thêm các sự kiện cho các nút next và previous
   prevButton.addEventListener("click", () => {
     if (currentPage > 1) {
       currentPage--;
@@ -147,7 +147,7 @@ function updatePaginationButtons(totalPages) {
   });
 }
 
-// Event listener for search and category filter changes
+// Lắng nghe sự kiện thay đổi tìm kiếm và bộ lọc thể loại
 document
   .querySelector(".search-input")
   .addEventListener("input", loadFavouriteRecipes);
@@ -158,37 +158,37 @@ document
   .querySelector(".sort-input")
   .addEventListener("change", loadFavouriteRecipes);
 
-// Call the function to load recipes when the page loads
+// Gọi hàm để tải các công thức khi trang được tải
 document.addEventListener("DOMContentLoaded", loadFavouriteRecipes);
 
-// Function to update the username dynamically from localStorage
+// Hàm để cập nhật tên người dùng động từ localStorage
 function updateUsername() {
-  // Retrieve the users object from localStorage
+  // Lấy đối tượng người dùng từ localStorage
   const users = JSON.parse(localStorage.getItem("users"));
 
-  // Check if users exists and is not empty
+  // Kiểm tra xem có người dùng trong localStorage không và nó không rỗng
   if (users) {
     let username;
 
-    // If users is an array, get the username from the first user
+    // Nếu users là một mảng, lấy tên người dùng từ người dùng đầu tiên
     if (Array.isArray(users)) {
-      username = users[0].username; // Get the username of the first user
+      username = users[0].username; // Lấy tên người dùng của người dùng đầu tiên
     } else {
-      // If users is an object, just get the username directly
+      // Nếu users là một đối tượng, chỉ cần lấy tên người dùng trực tiếp
       username = users.username;
     }
 
-    // If a username exists, update the span with the username
+    // Nếu có tên người dùng, cập nhật span với tên người dùng
     if (username) {
       document.querySelector(".user-info span").textContent = username;
     }
   } else {
-    // If no users in localStorage, set default value
+    // Nếu không có người dùng trong localStorage, đặt giá trị mặc định
     document.querySelector(".user-info span").textContent = "Guest";
   }
 }
 
-// Call the function when the page loads
+// Gọi hàm khi trang được tải
 document.addEventListener("DOMContentLoaded", updateUsername);
 
 function logout() {

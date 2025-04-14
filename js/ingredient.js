@@ -30,10 +30,12 @@ window.addEventListener("load", () => {
 });
 
 // Hàm load foods từ localStorage
-function loadFoods() {
+function loadFoods(isSearch = false) {
   // Lấy danh sách thực phẩm từ localStorage và cập nhật filteredFoods
-  let foods = JSON.parse(localStorage.getItem("foods")) || [];
-  filteredFoods = [...foods];
+  foods = JSON.parse(localStorage.getItem("foods")) || [];
+  if (!isSearch) {
+    filteredFoods = [...foods];
+  }
 
   const foodList = document.querySelector(".list-food");
   foodList.innerHTML = ""; // Làm sạch danh sách thực phẩm
@@ -124,7 +126,7 @@ function renderPagination() {
   const pagination = document.querySelector(".pagination");
   pagination.innerHTML = ""; // Làm sạch các nút phân trang hiện tại
 
-  const totalPages = Math.ceil(filteredFoods.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(filteredFoods.length / ITEMS_PER_PAGE); // Tổng số trang
 
   for (let i = 1; i <= totalPages; i++) {
     const pageButton = document.createElement("button");
@@ -142,17 +144,15 @@ function renderPagination() {
 
 // Hàm tìm kiếm thực phẩm theo tên
 function searchFoods(query) {
-  foods = JSON.parse(localStorage.getItem("foods")) || []; // Lấy danh sách thực phẩm từ localStorage
+  console.log(foods);
+
   query = query.toLowerCase(); // Chuyển từ khóa tìm kiếm thành chữ thường
   filteredFoods = foods.filter(
     (food) => food.name.toLowerCase().includes(query) // Kiểm tra tên thực phẩm có chứa từ khóa không
   );
-  console.log(foods);
-
-  console.log(filteredFoods);
 
   currentPage = 1; // Reset về trang 1 khi tìm kiếm
-  loadFoods(filteredFoods); // Tải lại danh sách thực phẩm sau khi lọc
+  loadFoods(true); // Tải lại danh sách thực phẩm sau khi lọc
 }
 
 // Hàm lọc theo thể loại (category)
@@ -162,8 +162,9 @@ function filterByCategory(category) {
   } else {
     filteredFoods = foods.filter((food) => food.category === category); // Lọc theo thể loại
   }
+
   currentPage = 1; // Reset về trang 1 khi lọc
-  loadFoods(filteredFoods); // Tải lại thực phẩm sau khi lọc
+  loadFoods(true); // Tải lại thực phẩm sau khi lọc
 }
 
 // Hàm sắp xếp theo dưỡng chất (Energy, Fat, Carbohydrate, Protein)
@@ -172,17 +173,13 @@ function sortByNutrient(nutrient) {
 
   // Sắp xếp từ cao đến thấp
   filteredFoods.sort((a, b) => {
-    const nutrientA = parseFloat(
-      a.nutrition[nutrient]?.replace(/[^\d.-]/g, "") || 0
-    );
-    const nutrientB = parseFloat(
-      b.nutrition[nutrient]?.replace(/[^\d.-]/g, "") || 0
-    );
+    const nutrientA = parseFloat(a.nutrition[nutrient] || 0);
+    const nutrientB = parseFloat(b.nutrition[nutrient] || 0);
     return nutrientB - nutrientA; // Sắp xếp từ cao đến thấp
   });
 
   currentPage = 1; // Reset về trang 1 khi sắp xếp
-  loadFoods(filteredFoods); // Tải lại thực phẩm sau khi sắp xếp
+  loadFoods(true); // Tải lại thực phẩm sau khi sắp xếp
 }
 
 // Các hàm khác (mở và đóng modal, lưu thực phẩm mới, cập nhật thực phẩm...) sẽ không thay đổi nhiều. Bạn có thể tiếp tục sử dụng chúng như trước.
@@ -327,12 +324,10 @@ function saveFoodChanges() {
       copper: document.getElementById("food-copper-edit").value,
       fluoride: document.getElementById("food-fluoride-edit").value,
       manganese: document.getElementById("food-manganese-edit").value,
-      copper: document.getElementById("food-copper-edit").value,
-      fluoride: document.getElementById("food-fluoride-edit").value,
       selenium: document.getElementById("food-selenium-edit").value,
       thiamin: document.getElementById("food-thiamin-edit").value,
       riboflavin: document.getElementById("food-riboflavin-edit").value,
-      fniacin: document.getElementById("food-niacin-edit").value,
+      niacin: document.getElementById("food-niacin-edit").value,
       pantothenicacid: document.getElementById("food-pantothenic-acid-edit")
         .value,
     },
@@ -342,7 +337,6 @@ function saveFoodChanges() {
   saveFoodsToLocalStorage();
   closeFoodModal();
 }
-
 // Cập nhật thực phẩm trong danh sách
 function updateFoodInList(updatedFood) {
   const foodList = document.querySelector(".list-food");
@@ -352,6 +346,7 @@ function updateFoodInList(updatedFood) {
   );
 
   if (foodItem) {
+    // Cập nhật thông tin thực phẩm trong danh sách
     foodItem.querySelector(".food-one-left-header").textContent =
       updatedFood.name;
     foodItem.querySelector(".item1:nth-child(4)").textContent =
@@ -370,6 +365,7 @@ function updateFoodInList(updatedFood) {
     foodItem.querySelector(".item2:nth-child(3)").textContent =
       updatedFood.quantity + " g";
 
+    // Cập nhật các micronutrients
     foodItem.querySelector(".item2:nth-child(4)").textContent =
       updatedFood.micronutrients.cholesterol || "";
     foodItem.querySelector(".item2:nth-child(5)").textContent =
@@ -385,9 +381,9 @@ function updateFoodInList(updatedFood) {
     foodItem.querySelector(".item2:nth-child(10)").textContent =
       updatedFood.micronutrients.vitaminB12 || "";
     foodItem.querySelector(".item2:nth-child(11)").textContent =
-      updatedFood.micronutrients.vitaminC || ""; // Vitamin C sẽ ở đây
+      updatedFood.micronutrients.vitaminC || "";
     foodItem.querySelector(".item2:nth-child(12)").textContent =
-      updatedFood.micronutrients.vitaminD || ""; // Vitamin D sẽ ở đây
+      updatedFood.micronutrients.vitaminD || "";
     foodItem.querySelector(".item2:nth-child(13)").textContent =
       updatedFood.micronutrients.vitaminE || "";
     foodItem.querySelector(".item2:nth-child(14)").textContent =
@@ -1111,6 +1107,36 @@ function saveFoodsToLocalStorage() {
 
   localStorage.setItem("foods", JSON.stringify(foods));
 }
+// Hàm để cập nhật tên người dùng động từ localStorage
+function updateUsername() {
+  // Lấy đối tượng người dùng từ localStorage
+  const users = JSON.parse(localStorage.getItem("users"));
+
+  // Kiểm tra xem có người dùng trong localStorage không và nó không rỗng
+  if (users) {
+    let username;
+
+    // Nếu users là một mảng, lấy tên người dùng từ người dùng đầu tiên
+    if (Array.isArray(users)) {
+      username = users[0].username; // Lấy tên người dùng của người dùng đầu tiên
+    } else {
+      // Nếu users là một đối tượng, chỉ cần lấy tên người dùng trực tiếp
+      username = users.username;
+    }
+
+    // Nếu có tên người dùng, cập nhật span với tên người dùng
+    if (username) {
+      document.querySelector(".user-info span").textContent = username;
+    }
+  } else {
+    // Nếu không có người dùng trong localStorage, đặt giá trị mặc định
+    document.querySelector(".user-info span").textContent = "Guest";
+  }
+}
+
+// Gọi hàm khi trang được tải
+document.addEventListener("DOMContentLoaded", updateUsername);
+
 function logout() {
   // Xóa thông tin đăng nhập khỏi localStorage
   localStorage.removeItem("currentUser");
